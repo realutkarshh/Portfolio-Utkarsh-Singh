@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, ExternalLink, Github, X } from "lucide-react";
 import Link from "next/link";
 import { Vortex } from "../components/ui/vortex";
+import About from "../components/About";
 
 export default function Portfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -226,13 +227,15 @@ export default function Portfolio() {
 
               <div className="lg:col-span-4 flex justify-center lg:justify-end">
                 <div className="relative">
-                  <div className="w-80 h-96 bg-gray-100 rounded-3xl overflow-hidden shadow-2xl">
+                  <div className="w-95 h-120 overflow-hidden">
                     <img
-                      src="/professional-developer-portrait.png"
+                      src="/profileImage3.jpg"
                       alt="Utkarsh Singh - Developer Portrait"
-                      className="w-full h-full object-cover grayscale"
+                      className="w-full h-full object-cover bg-transparent"
+    
                     />
-                    <div className="absolute inset-0 bg-black/10"></div>
+
+                    <div className="absolute inset-0 "></div>
                   </div>
                 </div>
               </div>
@@ -240,6 +243,8 @@ export default function Portfolio() {
           </div>
         </Vortex>
       </section>
+
+      {/* <About /> */}
 
       {/* About Section */}
       <section id="about" className="py-32 px-6 lg:px-12 bg-gray-50">
