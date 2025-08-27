@@ -18,10 +18,6 @@ export default function HeroSection({ onContactFormOpen }: HeroSectionProps) {
 
   return (
     <section className="min-h-screen flex items-center px-6 lg:px-12 pt-20 md:pt-0">
-      <Vortex
-        backgroundColor="#ffffff"
-        className="flex items-center flex-col justify-center px-2 md:px-10 py-4 w-full h-full"
-      >
         <div className="max-w-7xl mx-auto w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-8 space-y-8">
@@ -108,7 +104,6 @@ export default function HeroSection({ onContactFormOpen }: HeroSectionProps) {
             </div>
           </div>
         </div>
-      </Vortex>
     </section>
   );
 }
