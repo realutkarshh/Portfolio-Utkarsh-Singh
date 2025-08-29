@@ -1,0 +1,14 @@
+# *
+User-agent: *
+Allow: /
+
+# *
+User-agent: *
+Disallow: /api/*
+Disallow: /admin/*
+
+# Host
+Host: https://utkarsh.info
+
+# Sitemaps
+Sitemap: https://utkarsh.info/sitemap.xml
