@@ -10,21 +10,21 @@ export default function Footer() {
   const socialLinks = [
     { 
       name: "GitHub", 
-      href: "https://github.com/utkarsh", 
+      href: "https://github.com/realutkarshh", 
       icon: Github,
-      username: "@utkarsh"
+      username: "@realutkarshh"
     },
     { 
       name: "LinkedIn", 
-      href: "https://linkedin.com/in/utkarsh", 
+      href: "https://linkedin.com/in/realutkarshh", 
       icon: Linkedin,
       username: "Utkarsh Singh"
     },
     { 
       name: "Twitter", 
-      href: "https://twitter.com/utkarsh", 
+      href: "https://x.com/Utkarsh52762698", 
       icon: Twitter,
-      username: "@utkarsh"
+      username: "@realutkarshh"
     },
   ];
 

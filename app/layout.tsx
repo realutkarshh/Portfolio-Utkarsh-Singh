@@ -8,7 +8,10 @@ export const metadata: Metadata = {
   title: "Utkarsh Singh - Software Developer",
   description:
     "Portfolio website of Utkarsh Singh, a passionate software developer specializing in full-stack development and digital solutions.",
-  generator: "v0.app",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
 }
 
 export default function RootLayout({
@@ -18,7 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`}>{children}</body>
+      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`}>
+        {children}
+      </body>
     </html>
   )
 }
