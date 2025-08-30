@@ -34,7 +34,7 @@ export default function ProjectsPage() {
     },
     {
       id: "task-management",
-      title: "Task Management App",
+      title: "NoteStack",
       description:
         "Real-time collaborative task management with drag-and-drop functionality and team workspaces.",
       longDescription:
@@ -42,7 +42,7 @@ export default function ProjectsPage() {
       year: "2024",
       category: "Frontend",
       technologies: ["React", "Node.js", "Socket.io", "MongoDB", "React DnD"],
-      image: "/task-management-dashboard.png",
+      image: "/NoteStack-img.png",
       liveUrl: "#",
       githubUrl: "#",
       featured: true,

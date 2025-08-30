@@ -36,14 +36,14 @@ const projects = {
     ],
   },
   "task-management": {
-    title: "Task Management App",
-    description: "Real-time collaborative task management application",
+    title: "NoteStack",
+    description: "A complete notes taking application",
     longDescription:
       "A sophisticated project management tool that enables teams to collaborate effectively in real-time. Features include drag-and-drop task organization, team workspaces, progress tracking, and real-time notifications.",
     year: "2024",
     category: "Frontend",
     technologies: ["React", "Node.js", "Socket.io", "MongoDB", "React DnD", "Express", "JWT", "Material-UI"],
-    image: "/task-management-dashboard.png",
+    image: "/NoteStack-img.png",
     liveUrl: "#",
     githubUrl: "#",
     features: [
