@@ -27,7 +27,7 @@ export default function ProjectsPage() {
       year: "2024",
       category: "Full-Stack",
       technologies: ["Next.js", "TypeScript", "Stripe", "PostgreSQL", "Tailwind CSS", "Prisma"],
-      image: "/modern-ecommerce-interface.png",
+      image: "/ecom-img.png",
       liveUrl: "#",
       githubUrl: "#",
       featured: true,

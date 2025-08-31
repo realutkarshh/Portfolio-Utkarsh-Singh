@@ -15,7 +15,7 @@ const projects = {
     year: "2024",
     category: "Full-Stack",
     technologies: ["Next.js", "TypeScript", "Stripe", "PostgreSQL", "Tailwind CSS", "Prisma", "NextAuth.js", "Vercel"],
-    image: "/modern-ecommerce-interface.png",
+    image: "/ecom-img.png",
     liveUrl: "#",
     githubUrl: "#",
     features: [
