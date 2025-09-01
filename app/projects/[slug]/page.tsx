@@ -64,15 +64,15 @@ const projects = {
     ],
   },
   "weather-dashboard": {
-    title: "Weather Analytics Dashboard",
-    description: "Interactive weather data visualization dashboard",
+    title: "S.K.M College Website",
+    description: "S.K.M College Website to make the digital presence of the school.",
     longDescription:
       "An advanced weather analytics platform that transforms complex meteorological data into intuitive visualizations. The dashboard provides real-time weather updates, historical data analysis, and location-based forecasting.",
     year: "2023",
     category: "Data Visualization",
     technologies: ["React", "D3.js", "Python", "FastAPI", "Chart.js", "OpenWeather API", "Mapbox", "Redis"],
-    image: "/weather-analytics-dashboard-charts.png",
-    liveUrl: "#",
+    image: "/skm-img.png",
+    liveUrl: "https://skmcnp.org",
     githubUrl: "#",
     features: [
       "Real-time weather data visualization",

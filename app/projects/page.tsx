@@ -49,15 +49,15 @@ export default function ProjectsPage() {
     },
     {
       id: "weather-dashboard",
-      title: "Weather Analytics Dashboard",
+      title: "S.K.M College Website",
       description:
-        "Interactive weather data visualization with real-time updates and historical analysis.",
+        "This was a full stack project as I have created an admin panel to manage this website as well.",
       longDescription:
         "An advanced weather analytics platform that transforms complex meteorological data into intuitive visualizations.",
       year: "2023",
       category: "Data Visualization",
-      technologies: ["React", "D3.js", "Python", "FastAPI", "Chart.js"],
-      image: "/weather-analytics-dashboard-charts.png",
+      technologies: ["NextJS", "D3.js", "NodeJS", "Express", "ReCharts"],
+      image: "/skm-img.png",
       liveUrl: "#",
       githubUrl: "#",
       featured: false,
