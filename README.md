@@ -25,17 +25,6 @@ This portfolio serves as a central hub for everything about me – from my work 
 
 ---
 
-## 📸 Screenshots  
-
-> Replace with actual screenshots  
-
-- 🏠 Homepage  
-- 📖 About Me  
-- 💼 Projects Section  
-- 📬 Contact Page  
-
----
-
 ## 🔮 Future Improvements  
 
 - 🌙 Dark Mode Support  
