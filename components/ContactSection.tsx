@@ -147,7 +147,7 @@ export default function ContactSection({ onContactFormOpen }: ContactSectionProp
           style={{ transitionDelay: '600ms' }}
         >
           <Button
-            className="group bg-black text-white hover:bg-gray-800 rounded-full px-8 py-4 text-base font-medium transition-all duration-300 hover:scale-105 active:scale-95"
+            className="group bg-gray-950 text-white hover:bg-gray-800 rounded-full px-4 py-4 text-base font-medium transition-all duration-300 hover:scale-105 active:scale-95"
             onClick={onContactFormOpen}
           >
             Start a conversation
@@ -155,7 +155,7 @@ export default function ContactSection({ onContactFormOpen }: ContactSectionProp
           </Button>
           <Button
             variant="outline"
-            className="group rounded-full border-gray-300 text-gray-700 hover:bg-gray-100 hover:border-gray-400 px-8 py-4 text-base font-medium bg-white transition-all duration-300 hover:scale-105 active:scale-95"
+            className="group rounded-full border-gray-300 text-gray-900 hover:bg-gray-100 hover:text-gray-900 hover:cursor-pointer hover:border-gray-400 px-8 py-4 text-base font-medium bg-white transition-all duration-300 hover:scale-105 active:scale-95"
             onClick={handleResumeDownload}
           >
             <Download size={16} className="mr-2 transition-transform duration-300 group-hover:translate-y-[-1px]" />
