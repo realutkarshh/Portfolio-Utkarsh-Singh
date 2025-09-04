@@ -91,6 +91,34 @@ const projects = {
       "Optimizing performance for real-time data updates and rendering",
     ],
   },
+  "portfolio-website": {
+    title: "S.K.M College Admin Panel",
+    description: "S.K.M College Website to make the digital presence of the school.",
+    longDescription:
+      "An advanced weather analytics platform that transforms complex meteorological data into intuitive visualizations. The dashboard provides real-time weather updates, historical data analysis, and location-based forecasting.",
+    year: "2023",
+    category: "Data Visualization",
+    technologies: ["React", "D3.js", "Python", "FastAPI", "Chart.js", "OpenWeather API", "Mapbox", "Redis"],
+    image: "/skm-admin.png",
+    liveUrl: "https://skmcnp.org",
+    githubUrl: "#",
+    features: [
+      "Real-time weather data visualization",
+      "Historical weather analysis",
+      "Interactive maps with weather overlays",
+      "Custom chart components with D3.js",
+      "Location-based forecasting",
+      "Weather alerts and notifications",
+      "Data export functionality",
+      "Responsive dashboard layout",
+    ],
+    challenges: [
+      "Processing and visualizing large meteorological datasets efficiently",
+      "Creating smooth, interactive data visualizations with D3.js",
+      "Integrating multiple weather APIs for comprehensive coverage",
+      "Optimizing performance for real-time data updates and rendering",
+    ],
+  },
 }
 
 export default function ProjectPage({ params }: { params: { slug: string } }) {

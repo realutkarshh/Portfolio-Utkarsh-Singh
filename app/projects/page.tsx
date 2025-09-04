@@ -64,15 +64,15 @@ export default function ProjectsPage() {
     },
     {
       id: "portfolio-website",
-      title: "Portfolio Website",
+      title: "S.K.M College Admin Panel",
       description:
-        "A minimalist portfolio showcasing clean design principles and smooth animations.",
+        "An admin panel designed for the S.K.M College so that they can manage their admissions efficiently",
       longDescription:
         "This portfolio demonstrates modern web design principles with a focus on typography and user experience.",
       year: "2024",
       category: "Frontend",
       technologies: ["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"],
-      image: "/minimalist-portfolio-website.png",
+      image: "/skm-admin.png",
       liveUrl: "#",
       githubUrl: "#",
       featured: false,
