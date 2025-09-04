@@ -61,7 +61,7 @@ export default function HeroSection({ onContactFormOpen }: HeroSectionProps) {
                 style={{ transitionDelay: '600ms' }}
               >
                 <Button
-                  className="bg-black text-white hover:bg-gray-800 rounded-full px-10 py-4 text-lg"
+                  className="bg-black text-white hover:bg-gray-800 rounded-full px-10 py-8 text-lg"
                   onClick={onContactFormOpen}
                 >
                   Let's Talk
