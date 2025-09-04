@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Mail, MapPin, Clock, Github, Linkedin, Twitter } from "lucide-react";
+import { ArrowRight, Mail, MapPin, Clock, Github, Linkedin, Twitter, Download } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
 
 interface ContactSectionProps {
@@ -11,6 +11,34 @@ interface ContactSectionProps {
 export default function ContactSection({ onContactFormOpen }: ContactSectionProps) {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
+
+  // Add your Google Drive shareable link here
+  const RESUME_GOOGLE_DRIVE_LINK = "https://drive.google.com/file/d/1X5Kxhse_G8kHaZthluzxpleGoUYccbMd/view?usp=sharing";
+
+  // Function to convert Google Drive shareable link to direct download link
+  const getDirectDownloadLink = (shareableLink: string) => {
+    // Extract file ID from various Google Drive URL formats
+    const fileIdMatch = shareableLink.match(/\/d\/([a-zA-Z0-9-_]+)/);
+    if (fileIdMatch && fileIdMatch[1]) {
+      const fileId = fileIdMatch[1];
+      return `https://drive.google.com/uc?export=download&id=${fileId}`;
+    }
+    
+    // Fallback: if it's already a direct link or different format
+    return shareableLink;
+  };
+
+  const handleResumeDownload = () => {
+    const directLink = getDirectDownloadLink(RESUME_GOOGLE_DRIVE_LINK);
+    
+    // Create a temporary anchor element to trigger download
+    const link = document.createElement('a');
+    link.href = directLink;
+    link.download = 'Utkarsh_Singh_Resume.pdf'; // You can customize the filename
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -127,15 +155,15 @@ export default function ContactSection({ onContactFormOpen }: ContactSectionProp
           </Button>
           <Button
             variant="outline"
-            className="rounded-full border-gray-300 text-gray-700 hover:bg-gray-100 hover:border-gray-400 px-8 py-4 text-base font-medium bg-white transition-all duration-300 hover:scale-105 active:scale-95"
-            asChild
+            className="group rounded-full border-gray-300 text-gray-700 hover:bg-gray-100 hover:border-gray-400 px-8 py-4 text-base font-medium bg-white transition-all duration-300 hover:scale-105 active:scale-95"
+            onClick={handleResumeDownload}
           >
-            <a href="#" target="_blank" rel="noopener noreferrer">
-              Download Resume
-            </a>
+            <Download size={16} className="mr-2 transition-transform duration-300 group-hover:translate-y-[-1px]" />
+            Download Resume
           </Button>
         </div>
 
+        {/* Rest of your component remains the same */}
         {/* Contact Information */}
         <div className="mb-20">
           <div
@@ -178,8 +206,6 @@ export default function ContactSection({ onContactFormOpen }: ContactSectionProp
             ))}
           </div>
         </div>
-
-      
 
         {/* Bottom accent */}
         <div
