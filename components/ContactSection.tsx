@@ -13,7 +13,7 @@ export default function ContactSection({ onContactFormOpen }: ContactSectionProp
   const sectionRef = useRef(null);
 
   // Add your Google Drive shareable link here
-  const RESUME_GOOGLE_DRIVE_LINK = "https://drive.google.com/file/d/1X5Kxhse_G8kHaZthluzxpleGoUYccbMd/view?usp=sharing";
+  const RESUME_GOOGLE_DRIVE_LINK = "https://drive.google.com/file/d/1v_ikcV57SiCm4m8UPMbheZNa32nHyZ4O/view?usp=sharing";
 
   // Function to convert Google Drive shareable link to direct download link
   const getDirectDownloadLink = (shareableLink: string) => {
