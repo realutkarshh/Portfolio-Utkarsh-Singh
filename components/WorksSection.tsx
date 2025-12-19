@@ -11,15 +11,19 @@ export default function WorksSection() {
   const projects = [
     {
       title: "Helix Search Engine",
+      link: "/projects/helixsearch",
+    },
+    {
+      title: "Ecommerce Application",
       link: "/projects/ecommerce",
     },
     {
-      title: "Task Management App",
-      link: "/projects/task-management",
+      title: "Issue Tracking Application",
+      link: "/projects/issue-tracker",
     },
     {
-      title: "Weather Analytics Dashboard",
-      link: "/projects/weather-dashboard",
+      title: "Ecommerce Admin Panel",
+      link: "/projects/ecommerce-admin",
     },
   ];
 
