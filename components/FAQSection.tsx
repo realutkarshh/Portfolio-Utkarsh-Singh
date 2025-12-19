@@ -69,7 +69,7 @@ export default function FAQSection() {
               }`}
               style={{ transitionDelay: "200ms" }}
             >
-              <h2 className="text-5xl sm:text-6xl lg:text-8xl font-light text-gray-900 tracking-tight">
+              <h2 className="text-5xl sm:text-6xl ml-5 lg:text-8xl font-light text-gray-900 tracking-tight">
                 FAQ
               </h2>
             </div>

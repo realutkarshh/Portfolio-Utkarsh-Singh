@@ -46,7 +46,7 @@ export default function WorksSection() {
 
   return (
     <section id="works" className="py-24 px-6 lg:px-8" ref={sectionRef}>
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-20">
           <div

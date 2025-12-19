@@ -55,10 +55,10 @@ export default function HeroSection({ onContactFormOpen }: HeroSectionProps) {
                 products with emphasis
                 <br />
                 on{" "}
-                <span className="relative inline-block h-[1.065em] overflow-hidden align-bottom text-gray-600">
-                  <span className="relative inline-flex mt-2 items-baseline text-gray-500">
+                <span className="relative inline-block h-[1.0654em] overflow-hidden align-bottom text-gray-600">
+                  <span className="relative inline-flex mt-3 items-baseline text-gray-500">
                     <span
-                      className="inline-block transition-all duration-300 ease-out"
+                      className="inline-block transition-all duration-300 ease-out font-normal"
                       style={{
                         transform: animate
                           ? "translateY(0)"
