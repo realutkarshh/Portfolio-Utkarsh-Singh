@@ -17,8 +17,8 @@ export default function AboutSection() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-20">
-          <h2 className="text-6xl lg:text-7xl font-light text-gray-900 tracking-tight">
-            About
+          <h2 className="text-6xl lg:text-7xl font-normal text-gray-900 tracking-tight">
+            Who am I ?
           </h2>
           {/* <div className="w-12 h-px bg-gray-300 mx-auto mt-8"></div> */}
         </div>
@@ -91,14 +91,6 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* Bottom accent */}
-        <div className="mt-24 text-center">
-          <div className="inline-flex items-center space-x-2 text-sm text-gray-400">
-            <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
-            <span className="font-light">Always learning, always building</span>
-            <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
-          </div>
-        </div>
       </div>
     </section>
   );
