@@ -34,10 +34,10 @@ export default function Navigation({ onContactFormOpen, scrollToSection }: Navig
   };
 
   const navItems = [
-    { name: "About", action: () => handleScrollToSection("about") },
-    { name: "Works", action: () => handleScrollToSection("works") },
-    { name: "Projects", href: "/projects" },
-    { name: "Contact", action: () => handleScrollToSection("contact") },
+    { name: "ABOUT", action: () => handleScrollToSection("about") },
+    { name: "WORKS", action: () => handleScrollToSection("works") },
+    { name: "PROJECTS", href: "/projects" },
+    { name: "CONTACT", action: () => handleScrollToSection("contact") },
   ];
 
   return (
@@ -48,7 +48,7 @@ export default function Navigation({ onContactFormOpen, scrollToSection }: Navig
           : 'bg-white/90 backdrop-blur-md border-b border-gray-100'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div
@@ -60,7 +60,7 @@ export default function Navigation({ onContactFormOpen, scrollToSection }: Navig
               href="/"
               className="font-light text-xl text-gray-900 hover:text-black transition-colors duration-300 tracking-wide"
             >
-              Utkarsh Singh
+              UTKARSH SINGH
             </Link>
           </div>
 

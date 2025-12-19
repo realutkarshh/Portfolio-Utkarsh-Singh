@@ -8,6 +8,7 @@ import WorksSection from "../components/WorksSection";
 import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
 import ContactForm from "../components/ContactForm";
+import FAQSection from "@/components/FAQSection";
 
 export default function Portfolio() {
   const [isContactFormOpen, setIsContactFormOpen] = useState(false);
@@ -41,7 +42,9 @@ export default function Portfolio() {
       <WorksSection />
       
       <ContactSection onContactFormOpen={handleContactFormOpen} />
-      
+
+      <FAQSection />
+            
       <Footer />
       
       <ContactForm

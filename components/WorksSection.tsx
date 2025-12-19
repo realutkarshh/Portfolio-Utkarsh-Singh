@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
 
@@ -46,7 +46,7 @@ export default function WorksSection() {
 
   return (
     <section id="works" className="py-24 px-6 lg:px-8" ref={sectionRef}>
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-20">
           <div
@@ -80,7 +80,7 @@ export default function WorksSection() {
                 <div className="group border border-gray-100 rounded-2xl p-8 transition-all duration-300 bg-white">
                   <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between">
                     <div className="flex items-center justify-between lg:justify-start lg:space-x-4">
-                      <h3 className="relative text-5xl font-light text-gray-900 group-hover:text-black transition-colors duration-300">
+                      <h3 className="relative text-4xl font-light text-gray-900 group-hover:text-black transition-colors duration-300">
                         {project.title}
                       </h3>
                       <span className="absolute left-0 -bottom-2 h-[2px] w-0 bg-gray-900 transition-all duration-300 group-hover:w-full"></span>
@@ -89,7 +89,7 @@ export default function WorksSection() {
                     <div className="flex items-center space-x-6 mt-6 lg:mt-0 lg:ml-8">
                       <div className="flex items-center text-gray-400 group-hover:text-gray-900 transition-colors duration-500">
                         {/* <span className="text-sm font-light mr-3">View</span> */}
-                        <ArrowUpRight size={50} />
+                        <ArrowRight className="transition-transform duration-300 ease-out group-hover:-rotate-45" size={50} />
                       </div>
                     </div>
                   </div>

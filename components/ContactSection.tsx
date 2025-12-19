@@ -44,7 +44,7 @@ export default function ContactSection({ onContactFormOpen }: ContactSectionProp
       ref={sectionRef}
       className="min-h-screen py-24 px-6 lg:px-8 bg-gray-50 flex items-center"
     >
-      <div className="max-w-6xl mx-auto w-full">
+      <div className="max-w-7xl mx-auto w-full">
         {/* Heading */}
         <div
           className={`mb-16 transition-all duration-1000 ${

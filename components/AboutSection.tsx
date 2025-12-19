@@ -16,7 +16,7 @@ export default function AboutSection() {
 
   return (
     <section id="about" className="py-24 px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-20">
           <h2 className="text-6xl lg:text-7xl font-normal text-gray-900 tracking-tight">
@@ -30,7 +30,7 @@ export default function AboutSection() {
           <div className="lg:col-span-3 space-y-12">
             <div className="space-y-8">
               <p className="text-xl lg:text-2xl font-light text-gray-900 leading-relaxed">
-                I'm a passionate full-stack developer with over 3 years of
+                I'm a passionate full-stack developer with over 5 years of
                 experience creating digital solutions that bridge the gap
                 between design and functionality.
               </p>
