@@ -63,7 +63,7 @@ export default function ContactSection({ onContactFormOpen }: ContactSectionProp
           }`}
         >
           {/* Email */}
-          <div className="bg-white rounded-2xl p-8 border border-gray-500">
+          <div className="bg-white rounded-2xl p-8 border border-gray-400">
             <p className="text-2xl text-gray-500 mb-2">Email</p>
             <a
               href="mailto:realutkarshh@gmail.com"
@@ -91,7 +91,7 @@ export default function ContactSection({ onContactFormOpen }: ContactSectionProp
           </div>
 
           {/* Location */}
-          <div className="bg-white rounded-2xl p-8 border border-gray-500">
+          <div className="bg-white rounded-2xl p-8 border border-gray-400">
             <p className="text-2xl text-gray-500 mb-2">Location</p>
             <p className="text-lg font-light text-gray-900">
               Greater Noida West, India
@@ -99,7 +99,7 @@ export default function ContactSection({ onContactFormOpen }: ContactSectionProp
           </div>
 
           {/* Availability */}
-          <div className="bg-white rounded-2xl p-8 border border-gray-500">
+          <div className="bg-white rounded-2xl p-8 border border-gray-400">
             <p className="text-2xl text-gray-500 mb-2">Availability</p>
             <p className="text-lg font-light text-gray-900">
               Open for opportunities
@@ -107,7 +107,7 @@ export default function ContactSection({ onContactFormOpen }: ContactSectionProp
           </div>
 
           {/* Resume CTA */}
-          <div className="bg-white rounded-2xl p-8 border border-gray-500 flex items-center justify-between">
+          <div className="bg-white rounded-2xl p-8 border border-gray-400 flex items-center justify-between">
             <div>
               <p className="text-2xl text-gray-500 mb-2">Resume</p>
               <p className="text-lg font-light text-gray-900">

@@ -16,6 +16,31 @@ export default function HeroSection({ onContactFormOpen }: HeroSectionProps) {
     setIsLoaded(true);
   }, []);
 
+    const words = [
+  "clean code",
+  "smart logic",
+  "solid design",
+  "clear system",
+];
+
+const [wordIndex, setWordIndex] = useState(0);
+const [animate, setAnimate] = useState(true);
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    setAnimate(false);
+
+    setTimeout(() => {
+      setWordIndex((prev) => (prev + 1) % words.length);
+      setAnimate(true);
+    }, 200); // small gap to avoid flicker
+  }, 2400);
+
+  return () => clearInterval(interval);
+}, []);
+
+
+
   return (
     <section className="min-h-screen flex items-center px-6 lg:px-12 pt-20 md:pt-0">
         <div className="max-w-7xl mx-auto w-full">
@@ -46,10 +71,22 @@ export default function HeroSection({ onContactFormOpen }: HeroSectionProps) {
                   products with emphasis
                   <br />
                   on{" "}
-                  <span className="text-gray-600 relative">
-                    clean code
-                    {/* <span className="absolute -bottom-2 left-0 w-full h-1 bg-gray-200"></span> */}
-                  </span>
+                  <span className="relative inline-block h-[1em] overflow-hidden align-bottom text-gray-600">
+  <span className="relative inline-flex mt-2 items-baseline text-gray-500">
+  <span
+    className="inline-block transition-all duration-300 ease-out"
+    style={{
+      transform: animate ? "translateY(0)" : "translateY(0.4em)",
+      opacity: animate ? 1 : 0,
+      whiteSpace: "nowrap",
+    }}
+  >
+    {words[wordIndex]}
+  </span>
+</span>
+
+</span>
+
                 </h1>
               </div>
 
