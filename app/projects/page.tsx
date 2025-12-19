@@ -41,7 +41,7 @@ export default function ProjectsPage() {
       featured: true,
     },
     {
-      id: "task-management",
+      id: "note-stack",
       title: "NoteStack",
       description:
         "Real-time collaborative task management with drag-and-drop functionality and team workspaces.",
@@ -51,7 +51,7 @@ export default function ProjectsPage() {
       featured: true,
     },
     {
-      id: "weather-dashboard",
+      id: "skm-college",
       title: "S.K.M College Website",
       description:
         "This was a full stack project as I have created an admin panel to manage this website as well.",
@@ -61,13 +61,23 @@ export default function ProjectsPage() {
       featured: false,
     },
     {
-      id: "portfolio-website",
-      title: "S.K.M College Admin Panel",
+      id: "ecommerce-admin",
+      title: "Ecommerce Admin Panel",
       description:
-        "An admin panel designed for the S.K.M College so that they can manage their admissions efficiently",
+        "An admin panel designed for a Food Ecommerce brand to manage orders efficiently.",
       year: "2024",
       tags: ["Frontend", "Dashboard"],
       image: "/scott.png",
+      featured: false,
+    },
+    {
+      id: "issue-tracker",
+      title: "Issue Tracking Application",
+      description:
+        "An Issue Tracking application in which you can manage issues, assignee and priority.",
+      year: "2025",
+      tags: ["Frontend", "Dashboard"],
+      image: "/lake.png",
       featured: false,
     },
   ]

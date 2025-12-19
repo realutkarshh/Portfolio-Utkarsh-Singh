@@ -1,58 +1,66 @@
-"use client"
+"use client";
 
-import { useEffect, useState, useRef } from "react"
-import { Button } from "@/components/ui/button"
-import { ArrowLeft, ExternalLink, Github, Calendar, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
-import Link from "next/link"
-import { notFound } from "next/navigation"
+import { useEffect, useState, useRef } from "react";
+import { Button } from "@/components/ui/button";
+import {
+  ArrowLeft,
+  ExternalLink,
+  Github,
+  Calendar,
+  ArrowRight,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
+import Link from "next/link";
+import { notFound } from "next/navigation";
 
 const projects = {
   helixsearch: {
-  title: "Helix Search Engine",
-  description: "An independent, full-stack search engine built from scratch",
-  longDescription:
-    "Helix is a custom-built search engine designed and developed from the ground up without relying on any external search APIs. It features a proprietary web crawler, a scalable indexing pipeline, and an efficient query processing system. The project demonstrates deep understanding of distributed systems, information retrieval concepts, and full-stack engineering by integrating backend services, data processing, and a modern frontend experience.",
-  year: "2025",
-  category: "Search Engine / Systems",
-  technologies: [
-    "Go",
-    "Python",
-    "Flask",
-    "Next.js",
-    "Tailwind CSS",
-    "HTML Parsing",
-    "Inverted Indexing",
-    "REST APIs",
-  ],
-  images: [
-    "/helix-1.png",
-    "/helix-2.png",
-    "/helix-3.png",
-    "/helix-4.png",
-    "/helix-5.png",
-    "/helix-6.png",
-    "/helix-7.png",
-  ],
-  liveUrl: "https://helix-search.vercel.app/",
-  githubUrl: "https://github.com/realutkarshh/Basic-Search-Engine-.git",
-  features: [
-    "Custom-built web crawler developed in Go for high-performance crawling",
-    "Independent indexing system implemented in Python for efficient document storage",
-    "Inverted index-based search for fast and accurate query resolution",
-    "Query processor with ranking and relevance scoring",
-    "RESTful backend API built using Flask",
-    "Modern and responsive frontend built with Next.js",
-    "Real-time search results rendering with optimized UI performance",
-    "Fully independent architecture with no third-party search APIs",
-  ],
-  challenges: [
-    "Designing a scalable crawler capable of handling multiple URLs efficiently",
-    "Building an optimized indexing pipeline for large volumes of web data",
-    "Implementing fast and accurate search relevance without external libraries",
-    "Coordinating data flow between crawler, indexer, and query processor",
-    "Ensuring low-latency search responses while maintaining accuracy",
-  ],
-},
+    title: "Helix Search Engine",
+    description: "An independent, full-stack search engine built from scratch",
+    longDescription:
+      "Helix is a custom-built search engine designed and developed from the ground up without relying on any external search APIs. It features a proprietary web crawler, a scalable indexing pipeline, and an efficient query processing system. The project demonstrates deep understanding of distributed systems, information retrieval concepts, and full-stack engineering by integrating backend services, data processing, and a modern frontend experience.",
+    year: "2025",
+    category: "Search Engine / Systems",
+    technologies: [
+      "Go",
+      "Python",
+      "Flask",
+      "Next.js",
+      "Tailwind CSS",
+      "HTML Parsing",
+      "Inverted Indexing",
+      "REST APIs",
+    ],
+    images: [
+      "/helix-1.png",
+      "/helix-2.png",
+      "/helix-3.png",
+      "/helix-4.png",
+      "/helix-5.png",
+      "/helix-6.png",
+      "/helix-7.png",
+    ],
+    liveUrl: "https://helix-search.vercel.app/",
+    githubUrl: "https://github.com/realutkarshh/Basic-Search-Engine-.git",
+    features: [
+      "Custom-built web crawler developed in Go for high-performance crawling",
+      "Independent indexing system implemented in Python for efficient document storage",
+      "Inverted index-based search for fast and accurate query resolution",
+      "Query processor with ranking and relevance scoring",
+      "RESTful backend API built using Flask",
+      "Modern and responsive frontend built with Next.js",
+      "Real-time search results rendering with optimized UI performance",
+      "Fully independent architecture with no third-party search APIs",
+    ],
+    challenges: [
+      "Designing a scalable crawler capable of handling multiple URLs efficiently",
+      "Building an optimized indexing pipeline for large volumes of web data",
+      "Implementing fast and accurate search relevance without external libraries",
+      "Coordinating data flow between crawler, indexer, and query processor",
+      "Ensuring low-latency search responses while maintaining accuracy",
+    ],
+  },
 
   ecommerce: {
     title: "E-Commerce Platform",
@@ -61,9 +69,24 @@ const projects = {
       "This comprehensive e-commerce platform showcases modern web development practices with a focus on performance and user experience. Built with Next.js 14 and TypeScript, it features server-side rendering, optimistic UI updates, and seamless payment integration.",
     year: "2024",
     category: "Full-Stack",
-    technologies: ["Next.js", "TypeScript", "Stripe", "PostgreSQL", "Tailwind CSS", "Prisma", "NextAuth.js", "Vercel"],
-    images: ["/ecom-1.png", "/ecom-2.png", "/ecom-3.png","/ecom-4.png","/ecom-5.png"],
-    liveUrl: "#",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Stripe",
+      "PostgreSQL",
+      "Tailwind CSS",
+      "Prisma",
+      "NextAuth.js",
+      "Vercel",
+    ],
+    images: [
+      "/ecom-1.png",
+      "/ecom-2.png",
+      "/ecom-3.png",
+      "/ecom-4.png",
+      "/ecom-5.png",
+    ],
+    liveUrl: "https://restaurant-website-nine-beryl.vercel.app/",
     githubUrl: "#",
     features: [
       "User authentication and authorization",
@@ -82,111 +105,191 @@ const projects = {
       "Building a comprehensive admin interface for business management",
     ],
   },
-  "task-management": {
+  "note-stack": {
     title: "NoteStack",
-    description: "A complete notes taking application",
+    description: "A full-stack notes creation and management application",
     longDescription:
-      "A sophisticated project management tool that enables teams to collaborate effectively in real-time. Features include drag-and-drop task organization, team workspaces, progress tracking, and real-time notifications.",
+      "NoteStack is a full-stack notes application designed to help users create, organize, and manage their notes efficiently. The platform focuses on simplicity, performance, and reliability, providing a seamless note-taking experience across devices. Built with a modern web stack, it demonstrates backend API design, database modeling, authentication, and a responsive frontend architecture.",
     year: "2024",
-    category: "Frontend",
-    technologies: ["React", "Node.js", "Socket.io", "MongoDB", "React DnD", "Express", "JWT", "Material-UI"],
-    images: ["/NoteStack-img.png", "/NoteStack-img.png", "/NoteStack-img.png"],
+    category: "Full-Stack",
+    technologies: [
+      "Next.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "JWT",
+      "REST APIs",
+      "Tailwind CSS",
+    ],
+    images: [
+      "/note-3.png",
+      "/note-1.png",
+      "/note-2.png",
+      "/note-4.png",
+      "/note-5.png",
+    ],
+    liveUrl: "https://mern-notes-app-tawny.vercel.app/login",
+    githubUrl: "#",
+    features: [
+      "User authentication and secure session management",
+      "Create, edit, and delete notes in real time",
+      "Organize notes using notebooks or categories",
+      "Persistent storage using MongoDB",
+      "Fast and responsive UI built with Next.js",
+      "Search functionality to quickly find notes",
+      "Mobile-responsive design for all screen sizes",
+      "Clean and minimal user interface for distraction-free writing",
+    ],
+    challenges: [
+      "Designing an efficient database schema for scalable note storage",
+      "Implementing secure authentication and authorization using JWT",
+      "Ensuring fast API response times for frequent read/write operations",
+      "Managing frontend and backend state consistency",
+      "Building a smooth editing experience without data loss",
+    ],
+  },
+
+  "skm-college": {
+    title: "S.K.M College of Nursing & Paramedical Website",
+    description:
+      "An official college website designed to establish a strong digital presence for S.K.M College of Nursing and Paramedical.",
+    longDescription:
+      "This project is a complete institutional website developed for S.K.M College of Nursing and Paramedical to showcase academic programs, admissions information, infrastructure, and institutional details. The website focuses on clarity, accessibility, and smooth user experience while maintaining a professional and trustworthy design suitable for an educational institution.",
+    year: "2023",
+    category: "Frontend / Institutional Website",
+    technologies: [
+      "Next.js",
+      "Framer Motion",
+      "Tailwind CSS",
+      "Responsive Design",
+      "SEO Optimization",
+    ],
+    images: ["/skm-1.png", "/skm-2.png", "/skm-3.png", "/skm-4.png"],
+    liveUrl: "https://skmcnp.org",
+    githubUrl: "#",
+    features: [
+      "Fully responsive college website for all devices",
+      "Smooth page and component animations using Framer Motion",
+      "Clear presentation of academic programs and courses",
+      "Dedicated sections for admissions, faculty, and infrastructure",
+      "SEO-optimized structure for better online visibility",
+      "Fast page loads with Next.js static optimization",
+      "Clean and accessible UI tailored for educational institutions",
+      "Scalable layout for future content expansion",
+    ],
+    challenges: [
+      "Designing a professional UI that aligns with an academic institution’s identity",
+      "Structuring content for clarity and easy navigation",
+      "Implementing smooth animations without affecting performance",
+      "Ensuring responsiveness across a wide range of devices",
+      "Balancing visual appeal with accessibility and readability",
+    ],
+  },
+
+  "ecommerce-admin": {
+    title: "Ecommerce Admin Panel",
+    description:
+      "A centralized admin dashboard for managing ecommerce operations, orders, and customer interactions.",
+    longDescription:
+      "This Ecommerce Admin Panel is a management dashboard designed for store owners to efficiently handle daily ecommerce operations. It provides tools for order management, order tracking, and customer feedback monitoring, enabling administrators to gain operational visibility and maintain smooth order fulfillment workflows. The project emphasizes usability, performance, and clear data representation.",
+    year: "2024",
+    category: "Admin Dashboard / Full-Stack",
+    technologies: [
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "REST APIs",
+      "Dashboard UI",
+      "State Management",
+    ],
+    images: [
+      "/ecom-admin-1.png",
+      "/ecom-admin-2.png",
+      "/ecom-admin-3.png",
+      "/ecom-admin-4.png",
+      "/ecom-admin-5.png",
+      "/ecom-admin-6.png",
+      "/ecom-admin-7.png",
+    ],
     liveUrl: "#",
     githubUrl: "#",
     features: [
-      "Real-time collaboration with WebSocket",
-      "Drag-and-drop task organization",
-      "Team workspaces and project management",
-      "Progress tracking and analytics",
-      "File attachments and comments",
-      "Notification system",
-      "Mobile-responsive interface",
-      "Dark mode support",
+      "Order management with status updates and tracking",
+      "Centralized view of all customer orders",
+      "Order lifecycle tracking from placement to delivery",
+      "Customer feedback and review management",
+      "Search and filter functionality for orders",
+      "Dashboard layout for quick operational insights",
+      "Responsive admin interface for desktop and tablet",
+      "Scalable structure for future feature expansion",
     ],
     challenges: [
-      "Implementing real-time synchronization across multiple clients",
-      "Optimizing drag-and-drop performance for large task lists",
-      "Managing complex state across collaborative components",
-      "Ensuring data consistency in real-time collaborative environment",
+      "Designing an intuitive admin interface for complex ecommerce workflows",
+      "Structuring order data for efficient filtering and tracking",
+      "Managing dynamic UI state across multiple admin views",
+      "Ensuring fast data rendering for large order lists",
+      "Balancing detailed information with dashboard clarity",
     ],
   },
-  "weather-dashboard": {
-    title: "S.K.M College Website",
-    description: "S.K.M College Website to make the digital presence of the school.",
+
+  "issue-tracker": {
+    title: "Issue Tracker Application",
+    description:
+      "A full-stack issue tracking system for managing, prioritizing, and assigning issues.",
     longDescription:
-      "An advanced weather analytics platform that transforms complex meteorological data into intuitive visualizations. The dashboard provides real-time weather updates, historical data analysis, and location-based forecasting.",
-    year: "2023",
-    category: "Data Visualization",
-    technologies: ["React", "D3.js", "Python", "FastAPI", "Chart.js", "OpenWeather API", "Mapbox", "Redis"],
-    images: ["/skm-img.png", "/skm-img.png", "/skm-img.png"],
-    liveUrl: "https://skmcnp.org",
+      "This Issue Tracker Application is designed to help teams log, manage, and track issues throughout their lifecycle. Users can create issues with detailed descriptions, priority levels, and assigned owners, enabling structured issue resolution and accountability. The application demonstrates CRUD-based backend design, API integration, and a clean frontend experience for effective issue management.",
+    year: "2024",
+    category: "Full-Stack / Productivity Tool",
+    technologies: [
+      "Angular",
+      "FastAPI",
+      "MongoDB",
+      "REST APIs",
+      "TypeScript",
+      "JWT Authentication",
+    ],
+    images: ["/issue-1.png", "/issue-2.png", "/issue-3.png"],
+    liveUrl: "https://issue-tracker-eight-pi.vercel.app/issues",
     githubUrl: "#",
     features: [
-      "Real-time weather data visualization",
-      "Historical weather analysis",
-      "Interactive maps with weather overlays",
-      "Custom chart components with D3.js",
-      "Location-based forecasting",
-      "Weather alerts and notifications",
-      "Data export functionality",
-      "Responsive dashboard layout",
+      "Create, read, update, and delete issues",
+      "Issue prioritization (low, medium, high)",
+      "Assign issues to specific users",
+      "Detailed issue descriptions and status tracking",
+      "RESTful API integration between frontend and backend",
+      "Persistent data storage using MongoDB",
+      "Responsive and structured Angular UI",
+      "Clean workflow for issue lifecycle management",
     ],
     challenges: [
-      "Processing and visualizing large meteorological datasets efficiently",
-      "Creating smooth, interactive data visualizations with D3.js",
-      "Integrating multiple weather APIs for comprehensive coverage",
-      "Optimizing performance for real-time data updates and rendering",
+      "Designing a flexible database schema for issue data",
+      "Implementing reliable CRUD operations with FastAPI",
+      "Synchronizing frontend state with backend updates",
+      "Ensuring data validation and consistency across APIs",
+      "Structuring a scalable application architecture",
     ],
   },
-  "portfolio-website": {
-    title: "S.K.M College Admin Panel",
-    description: "S.K.M College Website to make the digital presence of the school.",
-    longDescription:
-      "An advanced weather analytics platform that transforms complex meteorological data into intuitive visualizations. The dashboard provides real-time weather updates, historical data analysis, and location-based forecasting.",
-    year: "2023",
-    category: "Data Visualization",
-    technologies: ["React", "D3.js", "Python", "FastAPI", "Chart.js", "OpenWeather API", "Mapbox", "Redis"],
-    images: ["/skm-admin.png", "/skm-admin.png", "/skm-admin.png"],
-    liveUrl: "https://skmcnp.org",
-    githubUrl: "#",
-    features: [
-      "Real-time weather data visualization",
-      "Historical weather analysis",
-      "Interactive maps with weather overlays",
-      "Custom chart components with D3.js",
-      "Location-based forecasting",
-      "Weather alerts and notifications",
-      "Data export functionality",
-      "Responsive dashboard layout",
-    ],
-    challenges: [
-      "Processing and visualizing large meteorological datasets efficiently",
-      "Creating smooth, interactive data visualizations with D3.js",
-      "Integrating multiple weather APIs for comprehensive coverage",
-      "Optimizing performance for real-time data updates and rendering",
-    ],
-  },
-}
+};
 
 // Image Carousel Component
 function ImageCarousel({ images }: { images: string[] }) {
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrevious = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    )
-  }
+    );
+  };
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === images.length - 1 ? 0 : prevIndex + 1
-    )
-  }
+    );
+  };
 
   const handleDotClick = (index: number) => {
-    setCurrentIndex(index)
-  }
+    setCurrentIndex(index);
+  };
 
   return (
     <div className="relative w-full h-full group">
@@ -197,10 +300,10 @@ function ImageCarousel({ images }: { images: string[] }) {
             key={index}
             className={`absolute inset-0 transition-all duration-700 ease-in-out ${
               index === currentIndex
-                ? 'opacity-100 translate-x-0'
+                ? "opacity-100 translate-x-0"
                 : index < currentIndex
-                ? 'opacity-0 -translate-x-full'
-                : 'opacity-0 translate-x-full'
+                ? "opacity-0 -translate-x-full"
+                : "opacity-0 translate-x-full"
             }`}
           >
             <img
@@ -241,8 +344,8 @@ function ImageCarousel({ images }: { images: string[] }) {
               onClick={() => handleDotClick(index)}
               className={`transition-all duration-300 rounded-full ${
                 index === currentIndex
-                  ? 'w-8 sm:w-10 h-2 sm:h-2.5 bg-white'
-                  : 'w-2 sm:w-2.5 h-2 sm:h-2.5 bg-white/50 hover:bg-white/75'
+                  ? "w-8 sm:w-10 h-2 sm:h-2.5 bg-white"
+                  : "w-2 sm:w-2.5 h-2 sm:h-2.5 bg-white/50 hover:bg-white/75"
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
@@ -257,64 +360,66 @@ function ImageCarousel({ images }: { images: string[] }) {
         </div>
       )}
     </div>
-  )
+  );
 }
 
 export default function ProjectPage({ params }: { params: { slug: string } }) {
-  const [isVisible, setIsVisible] = useState(false)
-  const [imageVisible, setImageVisible] = useState(false)
-  const [detailsVisible, setDetailsVisible] = useState(false)
-  const [challengesVisible, setChallengesVisible] = useState(false)
-  const [ctaVisible, setCtaVisible] = useState(false)
-  
-  const imageRef = useRef(null)
-  const detailsRef = useRef(null)
-  const challengesRef = useRef(null)
-  const ctaRef = useRef(null)
+  const [isVisible, setIsVisible] = useState(false);
+  const [imageVisible, setImageVisible] = useState(false);
+  const [detailsVisible, setDetailsVisible] = useState(false);
+  const [challengesVisible, setChallengesVisible] = useState(false);
+  const [ctaVisible, setCtaVisible] = useState(false);
 
-  const project = projects[params.slug as keyof typeof projects]
+  const imageRef = useRef(null);
+  const detailsRef = useRef(null);
+  const challengesRef = useRef(null);
+  const ctaRef = useRef(null);
+
+  const project = projects[params.slug as keyof typeof projects];
 
   useEffect(() => {
     // Header animation
-    setTimeout(() => setIsVisible(true), 100)
+    setTimeout(() => setIsVisible(true), 100);
 
     // Setup intersection observers
     const observerOptions = {
       threshold: 0.1,
-      rootMargin: '50px'
-    }
+      rootMargin: "50px",
+    };
 
     const imageObserver = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) setImageVisible(true)
-    }, observerOptions)
+      if (entry.isIntersecting) setImageVisible(true);
+    }, observerOptions);
 
     const detailsObserver = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) setDetailsVisible(true)
-    }, observerOptions)
+      if (entry.isIntersecting) setDetailsVisible(true);
+    }, observerOptions);
 
     const challengesObserver = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) setChallengesVisible(true)
-    }, observerOptions)
+      if (entry.isIntersecting) setChallengesVisible(true);
+    }, observerOptions);
 
     const ctaObserver = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) setCtaVisible(true)
-    }, observerOptions)
+      if (entry.isIntersecting) setCtaVisible(true);
+    }, observerOptions);
 
-    if (imageRef.current) imageObserver.observe(imageRef.current)
-    if (detailsRef.current) detailsObserver.observe(detailsRef.current)
-    if (challengesRef.current) challengesObserver.observe(challengesRef.current)
-    if (ctaRef.current) ctaObserver.observe(ctaRef.current)
+    if (imageRef.current) imageObserver.observe(imageRef.current);
+    if (detailsRef.current) detailsObserver.observe(detailsRef.current);
+    if (challengesRef.current)
+      challengesObserver.observe(challengesRef.current);
+    if (ctaRef.current) ctaObserver.observe(ctaRef.current);
 
     return () => {
-      if (imageRef.current) imageObserver.unobserve(imageRef.current)
-      if (detailsRef.current) detailsObserver.unobserve(detailsRef.current)
-      if (challengesRef.current) challengesObserver.unobserve(challengesRef.current)
-      if (ctaRef.current) ctaObserver.unobserve(ctaRef.current)
-    }
-  }, [])
+      if (imageRef.current) imageObserver.unobserve(imageRef.current);
+      if (detailsRef.current) detailsObserver.unobserve(detailsRef.current);
+      if (challengesRef.current)
+        challengesObserver.unobserve(challengesRef.current);
+      if (ctaRef.current) ctaObserver.unobserve(ctaRef.current);
+    };
+  }, []);
 
   if (!project) {
-    notFound()
+    notFound();
   }
 
   return (
@@ -323,11 +428,17 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
       <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-xl z-50 border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
-            <Link href="/projects" className="flex items-center text-gray-600 hover:text-black transition-colors duration-300 font-light">
+            <Link
+              href="/projects"
+              className="flex items-center text-gray-600 hover:text-black transition-colors duration-300 font-light"
+            >
               <ArrowLeft size={18} className="mr-3" />
               Back to projects
             </Link>
-            <Link href="/" className="font-light text-xl text-gray-900 tracking-wide">
+            <Link
+              href="/"
+              className="font-light text-xl text-gray-900 tracking-wide"
+            >
               Utkarsh Singh
             </Link>
           </div>
@@ -339,7 +450,9 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         <div className="max-w-4xl mx-auto">
           <div
             className={`flex items-center space-x-4 mb-8 transform transition-all duration-1000 ease-out ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+              isVisible
+                ? "translate-y-0 opacity-100"
+                : "translate-y-8 opacity-0"
             }`}
           >
             <span className="px-4 py-2 bg-gray-50 text-gray-600 text-sm rounded-full font-medium">
@@ -353,9 +466,11 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
 
           <div
             className={`transform transition-all duration-1000 ease-out ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
+              isVisible
+                ? "translate-y-0 opacity-100"
+                : "translate-y-12 opacity-0"
             }`}
-            style={{ transitionDelay: '200ms' }}
+            style={{ transitionDelay: "200ms" }}
           >
             <h1 className="text-5xl lg:text-6xl font-light text-gray-900 mb-6 tracking-tight leading-tight">
               {project.title}
@@ -365,9 +480,11 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
 
           <div
             className={`transform transition-all duration-1000 ease-out ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+              isVisible
+                ? "translate-y-0 opacity-100"
+                : "translate-y-8 opacity-0"
             }`}
-            style={{ transitionDelay: '400ms' }}
+            style={{ transitionDelay: "400ms" }}
           >
             <p className="text-xl font-light text-gray-600 mb-12 leading-relaxed">
               {project.longDescription}
@@ -376,17 +493,26 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
 
           <div
             className={`flex flex-col sm:flex-row gap-4 transform transition-all duration-1000 ease-out ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+              isVisible
+                ? "translate-y-0 opacity-100"
+                : "translate-y-8 opacity-0"
             }`}
-            style={{ transitionDelay: '600ms' }}
+            style={{ transitionDelay: "600ms" }}
           >
             <Button
               className="group bg-black text-white hover:bg-gray-800 rounded-full px-8 py-4 text-base font-medium transition-all duration-300 hover:scale-105 active:scale-95"
               asChild
             >
-              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 View Live Project
-                <ExternalLink size={18} className="ml-3 transition-transform duration-300 group-hover:translate-x-1" />
+                <ExternalLink
+                  size={18}
+                  className="ml-3 transition-transform duration-300 group-hover:translate-x-1"
+                />
               </a>
             </Button>
             <Button
@@ -394,7 +520,11 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
               className="group rounded-full border-gray-300 text-gray-700 hover:bg-gray-100 hover:border-gray-400 px-8 py-4 text-base font-medium bg-white transition-all duration-300 hover:scale-105 active:scale-95"
               asChild
             >
-              <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Github size={18} className="mr-3" />
                 View Code
               </a>
@@ -404,11 +534,13 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
       </section>
 
       {/* Project Image Carousel */}
-      <section className="pb-24 px-6 lg:px-8" ref={imageRef}>
+      <section className="pb-24 px-6 lg:px-8 object-fill" ref={imageRef}>
         <div className="max-w-6xl mx-auto">
           <div
             className={`aspect-[16/10] bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl overflow-hidden shadow-xl transform transition-all duration-1000 ease-out ${
-              imageVisible ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-8 opacity-0 scale-95'
+              imageVisible
+                ? "translate-y-0 opacity-100 scale-100"
+                : "translate-y-8 opacity-0 scale-95"
             }`}
           >
             <ImageCarousel images={project.images} />
@@ -423,7 +555,9 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             {/* Technologies */}
             <div
               className={`transform transition-all duration-1000 ease-out ${
-                detailsVisible ? 'translate-x-0 opacity-100' : '-translate-x-8 opacity-0'
+                detailsVisible
+                  ? "translate-x-0 opacity-100"
+                  : "-translate-x-8 opacity-0"
               }`}
             >
               <h2 className="text-3xl font-light text-gray-900 mb-8 tracking-tight">
@@ -435,9 +569,11 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                     key={tech}
                     className="px-4 py-3 bg-gray-50 text-gray-700 rounded-xl text-sm font-medium hover:bg-gray-100 transition-colors duration-300 text-center"
                     style={{
-                      transform: detailsVisible ? 'translateY(0)' : 'translateY(20px)',
+                      transform: detailsVisible
+                        ? "translateY(0)"
+                        : "translateY(20px)",
                       opacity: detailsVisible ? 1 : 0,
-                      transitionDelay: `${index * 50}ms`
+                      transitionDelay: `${index * 50}ms`,
                     }}
                   >
                     {tech}
@@ -449,9 +585,11 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             {/* Key Features */}
             <div
               className={`transform transition-all duration-1000 ease-out ${
-                detailsVisible ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
+                detailsVisible
+                  ? "translate-x-0 opacity-100"
+                  : "translate-x-8 opacity-0"
               }`}
-              style={{ transitionDelay: '200ms' }}
+              style={{ transitionDelay: "200ms" }}
             >
               <h2 className="text-3xl font-light text-gray-900 mb-8 tracking-tight">
                 Key Features
@@ -462,13 +600,17 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                     key={index}
                     className="flex items-start"
                     style={{
-                      transform: detailsVisible ? 'translateY(0)' : 'translateY(20px)',
+                      transform: detailsVisible
+                        ? "translateY(0)"
+                        : "translateY(20px)",
                       opacity: detailsVisible ? 1 : 0,
-                      transitionDelay: `${200 + index * 50}ms`
+                      transitionDelay: `${200 + index * 50}ms`,
                     }}
                   >
                     <div className="w-2 h-2 bg-black rounded-full mt-3 mr-4 flex-shrink-0"></div>
-                    <span className="text-gray-600 font-light leading-relaxed">{feature}</span>
+                    <span className="text-gray-600 font-light leading-relaxed">
+                      {feature}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -482,7 +624,9 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         <div className="max-w-4xl mx-auto">
           <div
             className={`transform transition-all duration-1000 ease-out ${
-              challengesVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+              challengesVisible
+                ? "translate-y-0 opacity-100"
+                : "translate-y-8 opacity-0"
             }`}
           >
             <h2 className="text-4xl lg:text-5xl font-light text-gray-900 mb-4 tracking-tight text-center">
@@ -490,13 +634,15 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             </h2>
             <div className="w-16 h-px bg-gray-300 mx-auto mb-16"></div>
           </div>
-          
+
           <div className="space-y-8">
             {project.challenges.map((challenge, index) => (
               <div
                 key={index}
                 className={`bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-sm transition-shadow duration-300 transform transition-all duration-1000 ease-out ${
-                  challengesVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                  challengesVisible
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-8 opacity-0"
                 }`}
                 style={{ transitionDelay: `${300 + index * 150}ms` }}
               >
@@ -504,7 +650,9 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                   <div className="w-8 h-8 bg-black text-white rounded-full flex items-center justify-center text-sm font-medium mr-6 mt-1 flex-shrink-0">
                     {index + 1}
                   </div>
-                  <p className="text-gray-600 leading-relaxed font-light text-lg">{challenge}</p>
+                  <p className="text-gray-600 leading-relaxed font-light text-lg">
+                    {challenge}
+                  </p>
                 </div>
               </div>
             ))}
@@ -517,7 +665,9 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         <div className="max-w-4xl mx-auto text-center">
           <div
             className={`transform transition-all duration-1000 ease-out ${
-              ctaVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+              ctaVisible
+                ? "translate-y-0 opacity-100"
+                : "translate-y-8 opacity-0"
             }`}
           >
             <h2 className="text-4xl lg:text-5xl font-light text-gray-900 mb-6 tracking-tight">
@@ -525,23 +675,28 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             </h2>
             <div className="w-12 h-px bg-gray-300 mx-auto mb-8"></div>
           </div>
-          
+
           <div
             className={`transform transition-all duration-1000 ease-out ${
-              ctaVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+              ctaVisible
+                ? "translate-y-0 opacity-100"
+                : "translate-y-8 opacity-0"
             }`}
-            style={{ transitionDelay: '300ms' }}
+            style={{ transitionDelay: "300ms" }}
           >
             <p className="text-xl font-light text-gray-600 mb-12 leading-relaxed">
-              Explore my other projects or get in touch to discuss your next idea.
+              Explore my other projects or get in touch to discuss your next
+              idea.
             </p>
           </div>
-          
+
           <div
             className={`flex flex-col sm:flex-row gap-4 justify-center transform transition-all duration-1000 ease-out ${
-              ctaVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+              ctaVisible
+                ? "translate-y-0 opacity-100"
+                : "translate-y-8 opacity-0"
             }`}
-            style={{ transitionDelay: '600ms' }}
+            style={{ transitionDelay: "600ms" }}
           >
             <Button
               className="group bg-black text-white hover:bg-gray-800 rounded-full px-8 py-4 text-base font-medium transition-all duration-300 hover:scale-105 active:scale-95"
@@ -549,7 +704,10 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             >
               <Link href="/projects">
                 View All Projects
-                <ArrowRight size={18} className="ml-3 transition-transform duration-300 group-hover:translate-x-1" />
+                <ArrowRight
+                  size={18}
+                  className="ml-3 transition-transform duration-300 group-hover:translate-x-1"
+                />
               </Link>
             </Button>
             <Button
@@ -563,5 +721,5 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         </div>
       </section>
     </div>
-  )
+  );
 }
