@@ -46,9 +46,9 @@ export default function HeroSection({ onContactFormOpen }: HeroSectionProps) {
                   products with emphasis
                   <br />
                   on{" "}
-                  <span className="text-gray-400 relative">
+                  <span className="text-gray-600 relative">
                     clean code
-                    <span className="absolute -bottom-2 left-0 w-full h-1 bg-gray-200"></span>
+                    {/* <span className="absolute -bottom-2 left-0 w-full h-1 bg-gray-200"></span> */}
                   </span>
                 </h1>
               </div>
@@ -61,7 +61,7 @@ export default function HeroSection({ onContactFormOpen }: HeroSectionProps) {
                 style={{ transitionDelay: '600ms' }}
               >
                 <Button
-                  className="bg-black text-white hover:bg-gray-800 rounded-full px-10 py-8 text-lg"
+                  className="bg-black text-white hover:bg-black rounded-full p-6 text-lg cursor-pointer"
                   onClick={onContactFormOpen}
                 >
                   Let's Talk

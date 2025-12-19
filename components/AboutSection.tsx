@@ -3,13 +3,13 @@
 export default function AboutSection() {
   const skills = [
     "React",
-    "Next.js",
+    "Express",
     "TypeScript",
     "Node.js",
     "Python",
     "PostgreSQL",
-    "AWS",
-    "Docker",
+    "JavaScript",
+    "Github",
   ];
 
   return (
@@ -20,7 +20,7 @@ export default function AboutSection() {
           <h2 className="text-6xl lg:text-7xl font-light text-gray-900 tracking-tight">
             About
           </h2>
-          <div className="w-12 h-px bg-gray-300 mx-auto mt-8"></div>
+          {/* <div className="w-12 h-px bg-gray-300 mx-auto mt-8"></div> */}
         </div>
 
         {/* Main Content */}

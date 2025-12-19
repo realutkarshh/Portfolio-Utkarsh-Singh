@@ -68,7 +68,7 @@ export default function Footer() {
             style={{ transitionDelay: '200ms' }}
           >
             <div className="space-y-4">
-              <h3 className="text-2xl font-light text-gray-900 tracking-tight">
+              <h3 className="text-5xl font-light text-gray-900 tracking-tight">
                 Utkarsh Singh
               </h3>
               <p className="text-gray-600 font-light leading-relaxed max-w-sm">
@@ -141,28 +141,13 @@ export default function Footer() {
           <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
             {/* Copyright */}
             <div className="flex items-center space-x-2 text-gray-500">
-              <span className="font-light">© 2024 Utkarsh Singh.</span>
-              <span className="font-light">All rights reserved.</span>
+              <span className="font-light">© 2025 Utkarsh Singh.</span>
+              <span className="font-light">All rights reserved. Thank you for Visiting </span>
             </div>
 
           </div>
         </div>
 
-       
-
-        {/* Bottom accent */}
-        <div
-          className={`mt-12 text-center transform transition-all duration-1000 ease-out ${
-            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-          }`}
-          style={{ transitionDelay: '1200ms' }}
-        >
-          <div className="inline-flex items-center space-x-2 text-xs text-gray-400">
-            <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
-            <span className="font-light">Thanks for visiting</span>
-            <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
-          </div>
-        </div>
       </div>
     </footer>
   );

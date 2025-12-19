@@ -106,7 +106,7 @@ export default function Navigation({ onContactFormOpen, scrollToSection }: Navig
               style={{ transitionDelay: '700ms' }}
             >
               <Button
-                className="group bg-black text-white hover:bg-gray-800 rounded-full px-6 py-2 text-sm font-medium transition-all duration-300 hover:scale-105 active:scale-95"
+                className="group bg-black text-white hover:bg-black cursor-pointer rounded-full px-6 py-2 text-sm font-medium transition-all duration-300 hover:scale-105 active:scale-95"
                 onClick={onContactFormOpen}
               >
                 Let's Talk

@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Mail, MapPin, Clock, Github, Linkedin, Twitter, Download } from "lucide-react";
+import { ArrowRight, Mail, MapPin, Clock, Github, Linkedin, Instagram, Download } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
 
 interface ContactSectionProps {
@@ -89,20 +89,20 @@ export default function ContactSection({ onContactFormOpen }: ContactSectionProp
     {
       icon: Github,
       label: "GitHub",
-      href: "https://github.com/utkarsh",
-      username: "@utkarsh"
+      href: "https://github.com/realutkarshh",
+      username: "@realutkarshh"
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      href: "https://linkedin.com/in/utkarsh",
+      href: "https://linkedin.com/in/realutkarshh",
       username: "Utkarsh Singh"
     },
     {
-      icon: Twitter,
-      label: "Twitter",
-      href: "https://twitter.com/utkarsh",
-      username: "@utkarsh"
+      icon: Instagram,
+      label: "Instagram",
+      href: "https://instagram.com/realutkarshh",
+      username: "@realutkarshh"
     }
   ];
 
@@ -118,13 +118,14 @@ export default function ContactSection({ onContactFormOpen }: ContactSectionProp
             style={{ transitionDelay: '200ms' }}
           >
             <h2 className="text-6xl lg:text-7xl font-light text-gray-900 tracking-tight mb-6">
-              Let's create
+              Let's create Together
             </h2>
-            <h2 className="text-6xl lg:text-7xl font-medium text-black tracking-tight">
+            {/* <h2 className="text-6xl lg:text-7xl font-medium text-black tracking-tight">
               together
-            </h2>
-            <div className="w-16 h-px bg-gray-300 mx-auto mt-8"></div>
+            </h2> */}
+            {/* <div className="w-16 h-px bg-gray-300 mx-auto mt-8"></div> */}
           </div>
+  
           
           <div
             className={`mt-12 transform transition-all duration-1000 ease-out ${
@@ -132,7 +133,7 @@ export default function ContactSection({ onContactFormOpen }: ContactSectionProp
             }`}
             style={{ transitionDelay: '400ms' }}
           >
-            <p className="text-xl font-light text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-xl font-light text-gray-600 max-w-2xl mx-auto text-left leading-relaxed">
               I'm passionate about turning ideas into exceptional digital experiences. 
               Whether you have a project in mind or just want to connect, I'd love to hear from you.
             </p>
@@ -147,7 +148,7 @@ export default function ContactSection({ onContactFormOpen }: ContactSectionProp
           style={{ transitionDelay: '600ms' }}
         >
           <Button
-            className="group bg-gray-950 text-white hover:bg-gray-800 rounded-full px-4 py-4 text-base font-medium transition-all duration-300 hover:scale-105 active:scale-95"
+            className="group bg-gray-950 text-white hover:bg-gray-800 rounded-full p-6 text-base font-medium transition-all duration-300 hover:scale-105 active:scale-95"
             onClick={onContactFormOpen}
           >
             Start a conversation
@@ -155,7 +156,7 @@ export default function ContactSection({ onContactFormOpen }: ContactSectionProp
           </Button>
           <Button
             variant="outline"
-            className="group rounded-full border-gray-300 text-gray-900 hover:bg-gray-100 hover:text-gray-900 hover:cursor-pointer hover:border-gray-400 px-8 py-4 text-base font-medium bg-white transition-all duration-300 hover:scale-105 active:scale-95"
+            className="group rounded-full border-gray-300 text-gray-900 hover:bg-gray-100 hover:text-gray-900 hover:cursor-pointer hover:border-gray-400 p-6 text-base font-medium bg-white transition-all duration-300 hover:scale-105 active:scale-95"
             onClick={handleResumeDownload}
           >
             <Download size={16} className="mr-2 transition-transform duration-300 group-hover:translate-y-[-1px]" />
@@ -172,7 +173,7 @@ export default function ContactSection({ onContactFormOpen }: ContactSectionProp
             }`}
             style={{ transitionDelay: '800ms' }}
           >
-            <h3 className="text-2xl font-light text-gray-900 mb-2">Get in touch</h3>
+            <h3 className="text-5xl font-light text-gray-900 mb-2">Get in touch</h3>
             <p className="text-gray-500 font-light">Multiple ways to connect</p>
           </div>
 
@@ -189,7 +190,7 @@ export default function ContactSection({ onContactFormOpen }: ContactSectionProp
                   <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-gray-200 transition-colors duration-300">
                     <item.icon size={20} className="text-gray-600" />
                   </div>
-                  <h4 className="font-medium text-gray-900 mb-2">{item.label}</h4>
+                  {/* <h4 className="font-medium text-gray-900 mb-2">{item.label}</h4> */}
                   {item.href ? (
                     <a
                       href={item.href}
@@ -206,20 +207,7 @@ export default function ContactSection({ onContactFormOpen }: ContactSectionProp
             ))}
           </div>
         </div>
-
-        {/* Bottom accent */}
-        <div
-          className={`mt-16 text-center transform transition-all duration-1000 ease-out ${
-            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-          }`}
-          style={{ transitionDelay: '2000ms' }}
-        >
-          <div className="inline-flex items-center space-x-2 text-sm text-gray-400">
-            <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
-            <span className="font-light">Ready to build something amazing</span>
-            <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
-          </div>
-        </div>
+       
       </div>
     </section>
   );

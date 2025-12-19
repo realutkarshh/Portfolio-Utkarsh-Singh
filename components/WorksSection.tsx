@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, ExternalLink, Github } from "lucide-react";
+import { ArrowRight, ArrowUpRight  } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
 
@@ -67,20 +67,7 @@ export default function WorksSection() {
             <div className="w-12 h-px bg-gray-300 mx-auto mt-8"></div>
           </div>
           
-          <div
-            className={`mt-8 transform transition-all duration-1000 ease-out ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-            }`}
-            style={{ transitionDelay: '400ms' }}
-          >
-            <Link
-              href="/projects"
-              className="inline-flex items-center text-gray-600 hover:text-black transition-colors duration-300 text-base font-light"
-            >
-              View all projects
-              <ArrowRight size={16} className="ml-2 transition-transform duration-300 hover:translate-x-1" />
-            </Link>
-          </div>
+          
         </div>
 
         {/* Projects Grid */}
@@ -112,12 +99,10 @@ export default function WorksSection() {
                     
                     <div className="flex items-center space-x-6 mt-6 lg:mt-0 lg:ml-8">
                       <div className="flex items-center text-gray-400 group-hover:text-gray-600 transition-colors duration-300">
-                        <span className="text-sm font-light mr-3">View</span>
-                        <ExternalLink size={16} />
+                        {/* <span className="text-sm font-light mr-3">View</span> */}
+                        <ArrowUpRight size={50} />
                       </div>
-                      <div className="flex items-center text-gray-400 group-hover:text-gray-600 transition-colors duration-300">
-                        <Github size={16} />
-                      </div>
+                
                     </div>
                   </div>
                 </div>
@@ -134,9 +119,13 @@ export default function WorksSection() {
           style={{ transitionDelay: '1400ms' }}
         >
           <div className="inline-flex items-center space-x-2 text-sm text-gray-400">
-            <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
-            <span className="font-light">Selected projects</span>
-            <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
+            <Link
+              href="/projects"
+              className="inline-flex items-center text-gray-600 hover:text-black transition-colors duration-300 text-base font-normal"
+            >
+              View all projects
+              <ArrowRight size={16} className="ml-2 transition-transform duration-300 hover:translate-x-1" />
+            </Link>
           </div>
         </div>
       </div>
