@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, ExternalLink, Github, Calendar, ArrowRight } from "lucide-react"
+import { ArrowLeft, ExternalLink, Github, Calendar, ArrowRight, ArrowUpRight } from "lucide-react"
 import Link from "next/link"
 
 export default function ProjectsPage() {
@@ -18,8 +18,24 @@ export default function ProjectsPage() {
 
   const projects = [
     {
+      id: "helix-search",
+      title: "Helix Search Engine",
+      description:
+        "A search engine made entirely from scratch. ",
+      longDescription:
+        "This comprehensive e-commerce platform showcases modern web development practices with a focus on performance and user experience.",
+      year: "2025",
+      category: "Full-Stack",
+      technologies: ["Next.js", "TypeScript", "Stripe", "PostgreSQL", "Tailwind CSS", "Prisma"],
+      tags: ["Full-Stack", "E-Commerce"],
+      image: "/ecom-img.png",
+      liveUrl: "#",
+      githubUrl: "#",
+      featured: true,
+    },
+    {
       id: "ecommerce",
-      title: "E-Commerce Platform",
+      title: "E-Commerce",
       description:
         "A full-stack e-commerce solution with user authentication, payment processing, and admin dashboard.",
       longDescription:
@@ -27,6 +43,7 @@ export default function ProjectsPage() {
       year: "2024",
       category: "Full-Stack",
       technologies: ["Next.js", "TypeScript", "Stripe", "PostgreSQL", "Tailwind CSS", "Prisma"],
+      tags: ["Full-Stack", "E-Commerce"],
       image: "/ecom-img.png",
       liveUrl: "#",
       githubUrl: "#",
@@ -42,6 +59,7 @@ export default function ProjectsPage() {
       year: "2024",
       category: "Frontend",
       technologies: ["React", "Node.js", "Socket.io", "MongoDB", "React DnD"],
+      tags: ["Frontend", "Real-time"],
       image: "/NoteStack-img.png",
       liveUrl: "#",
       githubUrl: "#",
@@ -57,6 +75,7 @@ export default function ProjectsPage() {
       year: "2023",
       category: "Data Visualization",
       technologies: ["NextJS", "D3.js", "NodeJS", "Express", "ReCharts"],
+      tags: ["Full-Stack", "Education"],
       image: "/skm-img.png",
       liveUrl: "#",
       githubUrl: "#",
@@ -72,6 +91,7 @@ export default function ProjectsPage() {
       year: "2024",
       category: "Frontend",
       technologies: ["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"],
+      tags: ["Frontend", "Dashboard"],
       image: "/skm-admin.png",
       liveUrl: "#",
       githubUrl: "#",
@@ -141,9 +161,8 @@ export default function ProjectsPage() {
             }`}
           >
             <h1 className="text-6xl lg:text-7xl font-light text-gray-900 mb-6 tracking-tight">
-              Projects
+              My Works
             </h1>
-            <div className="w-16 h-px bg-gray-300 mb-8"></div>
           </div>
           <div
             className={`transform transition-all duration-1000 ease-out ${
@@ -194,7 +213,7 @@ export default function ProjectsPage() {
       {/* Projects Grid */}
       <section className="pb-32 px-6 lg:px-8" ref={projectsRef}>
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredProjects.map((project, index) => (
               <div
                 key={project.id}
@@ -204,54 +223,57 @@ export default function ProjectsPage() {
                 style={{ transitionDelay: `${index * 200}ms` }}
               >
                 <Link href={`/projects/${project.id}`}>
-                  <div className="bg-white rounded-3xl overflow-hidden border border-gray-100 hover:border-gray-200 hover:shadow-xl transition-all duration-500 group-hover:scale-[1.02]">
-                    <div className="aspect-[16/10] bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
+                  <div className="relative bg-white rounded-3xl overflow-hidden h-[480px] sm:h-[520px] transition-all duration-500 hover:shadow-2xl">
+                    {/* Background Image */}
+                    <div className="absolute inset-0 w-full h-full">
                       <img
                         src={project.image || "/placeholder.svg"}
                         alt={project.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       />
+                      {/* Overlay gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/80"></div>
                     </div>
-                    <div className="p-8">
-                      <div className="flex items-center justify-between mb-6">
-                        <span className="px-4 py-2 bg-gray-50 text-gray-600 text-sm rounded-full font-medium">
-                          {project.category}
-                        </span>
-                        <span className="text-sm text-gray-400 flex items-center font-light">
-                          <Calendar size={14} className="mr-2" />
+
+                    {/* Content */}
+                    <div className="relative h-full flex flex-col justify-between p-6 sm:p-8">
+                      {/* Top section - Year */}
+                      <div className="flex justify-end">
+                        <span className="text-white/80 text-sm font-light">
                           {project.year}
                         </span>
                       </div>
-                      <h3 className="text-2xl font-light text-gray-900 mb-4 group-hover:text-black transition-colors duration-300">
-                        {project.title}
-                      </h3>
-                      <p className="text-gray-600 mb-8 leading-relaxed font-light line-clamp-3">
-                        {project.description}
-                      </p>
-                      <div className="flex flex-wrap gap-2 mb-8">
-                        {project.technologies.slice(0, 3).map((tech) => (
-                          <span key={tech} className="px-3 py-1 bg-gray-50 text-gray-600 text-xs rounded-full font-medium">
-                            {tech}
-                          </span>
-                        ))}
-                        {project.technologies.length > 3 && (
-                          <span className="px-3 py-1 bg-gray-50 text-gray-600 text-xs rounded-full font-medium">
-                            +{project.technologies.length - 3} more
-                          </span>
-                        )}
-                      </div>
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center text-sm text-gray-600 group-hover:text-black transition-colors duration-300 font-light">
-                          View Project
-                          <ExternalLink size={16} className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+
+                      {/* Bottom section - Title, Description, Tags */}
+                      <div className="space-y-4">
+                        {/* Title */}
+                        <h3 className="text-2xl sm:text-3xl font-light text-white leading-tight">
+                          {project.title}
+                        </h3>
+
+                        {/* Description */}
+                        <p className="text-white/90 text-sm sm:text-base font-light leading-relaxed line-clamp-2">
+                          {project.description}
+                        </p>
+
+                        {/* Tags and Arrow */}
+                        <div className="flex items-center justify-between pt-2">
+                          <div className="flex flex-wrap gap-2">
+                            {project.tags?.slice(0, 2).map((tag) => (
+                              <span 
+                                key={tag} 
+                                className="px-3 py-1.5 bg-white/20 backdrop-blur-sm text-white text-xs rounded-full font-medium border border-white/30"
+                              >
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                          
+                          {/* Arrow Icon */}
+                          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center transition-all duration-300 group-hover:bg-white group-hover:border-white group-hover:-rotate-45">
+                            <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6 text-white transition-colors duration-300 group-hover:text-black" />
+                          </div>
                         </div>
-                        <a
-                          href={project.githubUrl}
-                          onClick={(e) => e.stopPropagation()}
-                          className="p-2 text-gray-400 hover:text-gray-600 transition-colors duration-300 rounded-full hover:bg-gray-50"
-                        >
-                          <Github size={18} />
-                        </a>
                       </div>
                     </div>
                   </div>

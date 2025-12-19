@@ -60,7 +60,6 @@ export default function WorksSection() {
             <h2 className="text-6xl lg:text-7xl font-light text-gray-900 tracking-tight">
               Selected Work
             </h2>
-            <div className="w-12 h-px bg-gray-300 mx-auto mt-8"></div>
           </div>
         </div>
 

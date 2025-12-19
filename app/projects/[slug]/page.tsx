@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from "react"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, ExternalLink, Github, Calendar, ArrowRight } from "lucide-react"
+import { ArrowLeft, ExternalLink, Github, Calendar, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 
@@ -15,7 +15,7 @@ const projects = {
     year: "2024",
     category: "Full-Stack",
     technologies: ["Next.js", "TypeScript", "Stripe", "PostgreSQL", "Tailwind CSS", "Prisma", "NextAuth.js", "Vercel"],
-    image: "/ecom-img.png",
+    images: ["/ecom-img.png", "/ecom-img.png", "/ecom-img.png"],
     liveUrl: "#",
     githubUrl: "#",
     features: [
@@ -43,7 +43,7 @@ const projects = {
     year: "2024",
     category: "Frontend",
     technologies: ["React", "Node.js", "Socket.io", "MongoDB", "React DnD", "Express", "JWT", "Material-UI"],
-    image: "/NoteStack-img.png",
+    images: ["/NoteStack-img.png", "/NoteStack-img.png", "/NoteStack-img.png"],
     liveUrl: "#",
     githubUrl: "#",
     features: [
@@ -71,7 +71,7 @@ const projects = {
     year: "2023",
     category: "Data Visualization",
     technologies: ["React", "D3.js", "Python", "FastAPI", "Chart.js", "OpenWeather API", "Mapbox", "Redis"],
-    image: "/skm-img.png",
+    images: ["/skm-img.png", "/skm-img.png", "/skm-img.png"],
     liveUrl: "https://skmcnp.org",
     githubUrl: "#",
     features: [
@@ -99,7 +99,7 @@ const projects = {
     year: "2023",
     category: "Data Visualization",
     technologies: ["React", "D3.js", "Python", "FastAPI", "Chart.js", "OpenWeather API", "Mapbox", "Redis"],
-    image: "/skm-admin.png",
+    images: ["/skm-admin.png", "/skm-admin.png", "/skm-admin.png"],
     liveUrl: "https://skmcnp.org",
     githubUrl: "#",
     features: [
@@ -119,6 +119,98 @@ const projects = {
       "Optimizing performance for real-time data updates and rendering",
     ],
   },
+}
+
+// Image Carousel Component
+function ImageCarousel({ images }: { images: string[] }) {
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  const handlePrevious = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    )
+  }
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+    )
+  }
+
+  const handleDotClick = (index: number) => {
+    setCurrentIndex(index)
+  }
+
+  return (
+    <div className="relative w-full h-full group">
+      {/* Main Image */}
+      <div className="relative w-full h-full overflow-hidden">
+        {images.map((image, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-all duration-700 ease-in-out ${
+              index === currentIndex
+                ? 'opacity-100 translate-x-0'
+                : index < currentIndex
+                ? 'opacity-0 -translate-x-full'
+                : 'opacity-0 translate-x-full'
+            }`}
+          >
+            <img
+              src={image || "/placeholder.svg"}
+              alt={`Slide ${index + 1}`}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* Navigation Arrows */}
+      {images.length > 1 && (
+        <>
+          <button
+            onClick={handlePrevious}
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100 hover:bg-white hover:scale-110 shadow-lg"
+            aria-label="Previous image"
+          >
+            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-gray-900" />
+          </button>
+          <button
+            onClick={handleNext}
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100 hover:bg-white hover:scale-110 shadow-lg"
+            aria-label="Next image"
+          >
+            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-gray-900" />
+          </button>
+        </>
+      )}
+
+      {/* Navigation Dots */}
+      {images.length > 1 && (
+        <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 flex items-center space-x-2 sm:space-x-3">
+          {images.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => handleDotClick(index)}
+              className={`transition-all duration-300 rounded-full ${
+                index === currentIndex
+                  ? 'w-8 sm:w-10 h-2 sm:h-2.5 bg-white'
+                  : 'w-2 sm:w-2.5 h-2 sm:h-2.5 bg-white/50 hover:bg-white/75'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
+      )}
+
+      {/* Image Counter */}
+      {images.length > 1 && (
+        <div className="absolute top-4 right-4 px-3 py-1.5 sm:px-4 sm:py-2 bg-black/50 backdrop-blur-sm rounded-full text-white text-xs sm:text-sm font-light">
+          {currentIndex + 1} / {images.length}
+        </div>
+      )}
+    </div>
+  )
 }
 
 export default function ProjectPage({ params }: { params: { slug: string } }) {
@@ -264,7 +356,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         </div>
       </section>
 
-      {/* Project Image */}
+      {/* Project Image Carousel */}
       <section className="pb-24 px-6 lg:px-8" ref={imageRef}>
         <div className="max-w-6xl mx-auto">
           <div
@@ -272,11 +364,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
               imageVisible ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-8 opacity-0 scale-95'
             }`}
           >
-            <img 
-              src={project.image || "/placeholder.svg"} 
-              alt={project.title} 
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" 
-            />
+            <ImageCarousel images={project.images} />
           </div>
         </div>
       </section>
