@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, ExternalLink, Github, Calendar, ArrowRight, ArrowUpRight } from "lucide-react"
+import { ArrowLeft, ExternalLink, Github, Calendar, ArrowRight, ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react"
 import Link from "next/link"
 
 export default function ProjectsPage() {
@@ -11,42 +11,33 @@ export default function ProjectsPage() {
   const [filterVisible, setFilterVisible] = useState(false)
   const [projectsVisible, setProjectsVisible] = useState(false)
   const [ctaVisible, setCtaVisible] = useState(false)
+  const [scrollX, setScrollX] = useState(0)
+  const [scrollEnd, setScrollEnd] = useState(false)
   
   const filterRef = useRef(null)
   const projectsRef = useRef(null)
   const ctaRef = useRef(null)
+  const sliderRef = useRef(null)
 
   const projects = [
     {
-      id: "helix-search",
+      id: "helixsearch",
       title: "Helix Search Engine",
       description:
-        "A search engine made entirely from scratch. ",
-      longDescription:
-        "This comprehensive e-commerce platform showcases modern web development practices with a focus on performance and user experience.",
-      year: "2025",
-      category: "Full-Stack",
-      technologies: ["Next.js", "TypeScript", "Stripe", "PostgreSQL", "Tailwind CSS", "Prisma"],
+        "A full stack search engine created from scratch. It is an independent search engine with its own web crawler, indexer and query processor.",
+      year: "2024",
       tags: ["Full-Stack", "E-Commerce"],
-      image: "/ecom-img.png",
-      liveUrl: "#",
-      githubUrl: "#",
+      image: "/helix-search-logo.png",
       featured: true,
     },
     {
       id: "ecommerce",
-      title: "E-Commerce",
+      title: "E-Commerce Platform",
       description:
         "A full-stack e-commerce solution with user authentication, payment processing, and admin dashboard.",
-      longDescription:
-        "This comprehensive e-commerce platform showcases modern web development practices with a focus on performance and user experience.",
       year: "2024",
-      category: "Full-Stack",
-      technologies: ["Next.js", "TypeScript", "Stripe", "PostgreSQL", "Tailwind CSS", "Prisma"],
       tags: ["Full-Stack", "E-Commerce"],
-      image: "/ecom-img.png",
-      liveUrl: "#",
-      githubUrl: "#",
+      image: "/desert.png",
       featured: true,
     },
     {
@@ -54,15 +45,9 @@ export default function ProjectsPage() {
       title: "NoteStack",
       description:
         "Real-time collaborative task management with drag-and-drop functionality and team workspaces.",
-      longDescription:
-        "A sophisticated project management tool that enables teams to collaborate effectively with real-time updates.",
       year: "2024",
-      category: "Frontend",
-      technologies: ["React", "Node.js", "Socket.io", "MongoDB", "React DnD"],
       tags: ["Frontend", "Real-time"],
-      image: "/NoteStack-img.png",
-      liveUrl: "#",
-      githubUrl: "#",
+      image: "/mountain.png",
       featured: true,
     },
     {
@@ -70,15 +55,9 @@ export default function ProjectsPage() {
       title: "S.K.M College Website",
       description:
         "This was a full stack project as I have created an admin panel to manage this website as well.",
-      longDescription:
-        "An advanced weather analytics platform that transforms complex meteorological data into intuitive visualizations.",
       year: "2023",
-      category: "Data Visualization",
-      technologies: ["NextJS", "D3.js", "NodeJS", "Express", "ReCharts"],
       tags: ["Full-Stack", "Education"],
-      image: "/skm-img.png",
-      liveUrl: "#",
-      githubUrl: "#",
+      image: "/scenic.png",
       featured: false,
     },
     {
@@ -86,15 +65,9 @@ export default function ProjectsPage() {
       title: "S.K.M College Admin Panel",
       description:
         "An admin panel designed for the S.K.M College so that they can manage their admissions efficiently",
-      longDescription:
-        "This portfolio demonstrates modern web design principles with a focus on typography and user experience.",
       year: "2024",
-      category: "Frontend",
-      technologies: ["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"],
       tags: ["Frontend", "Dashboard"],
-      image: "/skm-admin.png",
-      liveUrl: "#",
-      githubUrl: "#",
+      image: "/scott.png",
       featured: false,
     },
   ]
@@ -135,6 +108,26 @@ export default function ProjectsPage() {
     }
   }, [])
 
+  const slide = (shift: any) => {
+    if (sliderRef.current) {
+      sliderRef.current.scrollBy({
+        left: shift,
+        behavior: 'smooth'
+      })
+    }
+  }
+
+  const scrollCheck = () => {
+    if (sliderRef.current) {
+      setScrollX(sliderRef.current.scrollLeft)
+      if (Math.floor(sliderRef.current.scrollWidth - sliderRef.current.scrollLeft) <= sliderRef.current.offsetWidth) {
+        setScrollEnd(true)
+      } else {
+        setScrollEnd(false)
+      }
+    }
+  }
+
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
@@ -146,7 +139,7 @@ export default function ProjectsPage() {
               Back to home
             </Link>
             <Link href="/" className="font-light text-xl text-gray-900 tracking-wide">
-              Utkarsh Singh
+              UTKARSH SINGH
             </Link>
           </div>
         </div>
@@ -178,8 +171,8 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      {/* Filter */}
-      <section className="pb-20 px-6 lg:px-8" ref={filterRef}>
+
+      {/* <section className="pb-20 px-6 lg:px-8" ref={filterRef}>
         <div className="max-w-6xl mx-auto">
           <div
             className={`transform transition-all duration-1000 ease-out ${
@@ -208,78 +201,117 @@ export default function ProjectsPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
-      {/* Projects Grid */}
+      {/* Projects Slider */}
       <section className="pb-32 px-6 lg:px-8" ref={projectsRef}>
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredProjects.map((project, index) => (
-              <div
-                key={project.id}
-                className={`group transform transition-all duration-1000 ease-out ${
-                  projectsVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
-                }`}
-                style={{ transitionDelay: `${index * 200}ms` }}
+        <div className="max-w-7xl mx-auto">
+          <div
+            className={`relative transform transition-all duration-1000 ease-out ${
+              projectsVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
+            }`}
+          >
+            {/* Left Arrow */}
+            {scrollX > 0 && (
+              <button
+                onClick={() => slide(-600)}
+                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 lg:-translate-x-12 z-10 w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-white shadow-xl border border-gray-100 flex items-center justify-center transition-all duration-300 hover:bg-gray-50 hover:scale-110 hover:shadow-2xl"
+                aria-label="Previous projects"
               >
-                <Link href={`/projects/${project.id}`}>
-                  <div className="relative bg-white rounded-3xl overflow-hidden h-[480px] sm:h-[520px] transition-all duration-500 hover:shadow-2xl">
-                    {/* Background Image */}
-                    <div className="absolute inset-0 w-full h-full">
-                      <img
-                        src={project.image || "/placeholder.svg"}
-                        alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                      {/* Overlay gradient */}
-                      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/80"></div>
-                    </div>
+                <ChevronLeft className="w-6 h-6 lg:w-7 lg:h-7 text-gray-900" />
+              </button>
+            )}
 
-                    {/* Content */}
-                    <div className="relative h-full flex flex-col justify-between p-6 sm:p-8">
-                      {/* Top section - Year */}
-                      <div className="flex justify-end">
-                        <span className="text-white/80 text-sm font-light">
-                          {project.year}
-                        </span>
+            {/* Slider Container */}
+            <div
+              ref={sliderRef}
+              onScroll={scrollCheck}
+              className="flex gap-6 overflow-x-auto scrollbar-hide scroll-smooth"
+              style={{
+                scrollbarWidth: 'none',
+                msOverflowStyle: 'none',
+              }}
+            >
+              {filteredProjects.map((project, index) => (
+                <div
+                  key={project.id}
+                  className="flex-shrink-0 w-[85vw] sm:w-[70vw] md:w-[45vw] lg:w-[30vw] group"
+                  style={{
+                    transform: projectsVisible ? 'translateY(0)' : 'translateY(20px)',
+                    opacity: projectsVisible ? 1 : 0,
+                    transitionDelay: `${index * 200}ms`
+                  }}
+                >
+                  <Link href={`/projects/${project.id}`}>
+                    <div className="relative bg-white rounded-3xl overflow-hidden h-[480px] sm:h-[520px] transition-all duration-500 hover:shadow-2xl">
+                      {/* Background Image */}
+                      <div className="absolute inset-0 w-full h-full">
+                        <img
+                          src={project.image || "/placeholder.svg"}
+                          alt={project.title}
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                        {/* Overlay gradient */}
+                        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/80"></div>
                       </div>
 
-                      {/* Bottom section - Title, Description, Tags */}
-                      <div className="space-y-4">
-                        {/* Title */}
-                        <h3 className="text-2xl sm:text-3xl font-light text-white leading-tight">
-                          {project.title}
-                        </h3>
+                      {/* Content */}
+                      <div className="relative h-full flex flex-col justify-between p-6 sm:p-8">
+                        {/* Top section - Year */}
+                        <div className="flex justify-end">
+                          <span className="text-white/80 text-sm font-light">
+                            {project.year}
+                          </span>
+                        </div>
 
-                        {/* Description */}
-                        <p className="text-white/90 text-sm sm:text-base font-light leading-relaxed line-clamp-2">
-                          {project.description}
-                        </p>
+                        {/* Bottom section - Title, Description, Tags */}
+                        <div className="space-y-4">
+                          {/* Title */}
+                          <h3 className="text-2xl sm:text-3xl font-light text-white leading-tight">
+                            {project.title}
+                          </h3>
 
-                        {/* Tags and Arrow */}
-                        <div className="flex items-center justify-between pt-2">
-                          <div className="flex flex-wrap gap-2">
-                            {project.tags?.slice(0, 2).map((tag) => (
-                              <span 
-                                key={tag} 
-                                className="px-3 py-1.5 bg-white/20 backdrop-blur-sm text-white text-xs rounded-full font-medium border border-white/30"
-                              >
-                                {tag}
-                              </span>
-                            ))}
-                          </div>
-                          
-                          {/* Arrow Icon */}
-                          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center transition-all duration-300 group-hover:bg-white group-hover:border-white group-hover:-rotate-45">
-                            <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6 text-white transition-colors duration-300 group-hover:text-black" />
+                          {/* Description */}
+                          <p className="text-white/90 text-sm sm:text-base font-light leading-relaxed line-clamp-2">
+                            {project.description}
+                          </p>
+
+                          {/* Tags and Arrow */}
+                          <div className="flex items-center justify-between pt-2">
+                            <div className="flex flex-wrap gap-2">
+                              {project.tags?.slice(0, 2).map((tag) => (
+                                <span 
+                                  key={tag} 
+                                  className="px-3 py-1.5 bg-white/20 backdrop-blur-sm text-white text-xs rounded-full font-medium border border-white/30"
+                                >
+                                  {tag}
+                                </span>
+                              ))}
+                            </div>
+                            
+                            {/* Arrow Icon */}
+                            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center transition-all duration-300 group-hover:bg-white group-hover:border-white group-hover:-rotate-45">
+                              <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6 text-white transition-colors duration-300 group-hover:text-black" />
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </Link>
-              </div>
-            ))}
+                  </Link>
+                </div>
+              ))}
+            </div>
+
+            {/* Right Arrow */}
+            {!scrollEnd && filteredProjects.length > 1 && (
+              <button
+                onClick={() => slide(600)}
+                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 lg:translate-x-12 z-10 w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-white shadow-xl border border-gray-100 flex items-center justify-center transition-all duration-300 hover:bg-gray-50 hover:scale-110 hover:shadow-2xl"
+                aria-label="Next projects"
+              >
+                <ChevronRight className="w-6 h-6 lg:w-7 lg:h-7 text-gray-900" />
+              </button>
+            )}
           </div>
         </div>
       </section>
@@ -326,6 +358,12 @@ export default function ProjectsPage() {
           </div>
         </div>
       </section>
+
+      <style jsx global>{`
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </div>
   )
 }

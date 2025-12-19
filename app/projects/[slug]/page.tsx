@@ -7,6 +7,53 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 
 const projects = {
+  helixsearch: {
+  title: "Helix Search Engine",
+  description: "An independent, full-stack search engine built from scratch",
+  longDescription:
+    "Helix is a custom-built search engine designed and developed from the ground up without relying on any external search APIs. It features a proprietary web crawler, a scalable indexing pipeline, and an efficient query processing system. The project demonstrates deep understanding of distributed systems, information retrieval concepts, and full-stack engineering by integrating backend services, data processing, and a modern frontend experience.",
+  year: "2025",
+  category: "Search Engine / Systems",
+  technologies: [
+    "Go",
+    "Python",
+    "Flask",
+    "Next.js",
+    "Tailwind CSS",
+    "HTML Parsing",
+    "Inverted Indexing",
+    "REST APIs",
+  ],
+  images: [
+    "/helix-1.png",
+    "/helix-2.png",
+    "/helix-3.png",
+    "/helix-4.png",
+    "/helix-5.png",
+    "/helix-6.png",
+    "/helix-7.png",
+  ],
+  liveUrl: "https://helix-search.vercel.app/",
+  githubUrl: "https://github.com/realutkarshh/Basic-Search-Engine-.git",
+  features: [
+    "Custom-built web crawler developed in Go for high-performance crawling",
+    "Independent indexing system implemented in Python for efficient document storage",
+    "Inverted index-based search for fast and accurate query resolution",
+    "Query processor with ranking and relevance scoring",
+    "RESTful backend API built using Flask",
+    "Modern and responsive frontend built with Next.js",
+    "Real-time search results rendering with optimized UI performance",
+    "Fully independent architecture with no third-party search APIs",
+  ],
+  challenges: [
+    "Designing a scalable crawler capable of handling multiple URLs efficiently",
+    "Building an optimized indexing pipeline for large volumes of web data",
+    "Implementing fast and accurate search relevance without external libraries",
+    "Coordinating data flow between crawler, indexer, and query processor",
+    "Ensuring low-latency search responses while maintaining accuracy",
+  ],
+},
+
   ecommerce: {
     title: "E-Commerce Platform",
     description: "A full-stack e-commerce solution built with Next.js",
@@ -15,7 +62,7 @@ const projects = {
     year: "2024",
     category: "Full-Stack",
     technologies: ["Next.js", "TypeScript", "Stripe", "PostgreSQL", "Tailwind CSS", "Prisma", "NextAuth.js", "Vercel"],
-    images: ["/ecom-img.png", "/ecom-img.png", "/ecom-img.png"],
+    images: ["/ecom-1.png", "/ecom-2.png", "/ecom-3.png","/ecom-4.png","/ecom-5.png"],
     liveUrl: "#",
     githubUrl: "#",
     features: [
