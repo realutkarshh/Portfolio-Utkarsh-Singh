@@ -80,7 +80,7 @@ export default function WorksSection() {
                 <div className="group border border-gray-100 rounded-2xl p-8 transition-all duration-300 bg-white">
                   <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between">
                     <div className="flex items-center justify-between lg:justify-start lg:space-x-4">
-                      <h3 className="relative text-4xl font-light text-gray-900 group-hover:text-black transition-colors duration-300">
+                      <h3 className="relative text-5xl font-light text-gray-900 group-hover:text-black transition-colors duration-300">
                         {project.title}
                       </h3>
                       <span className="absolute left-0 -bottom-2 h-[2px] w-0 bg-gray-900 transition-all duration-300 group-hover:w-full"></span>

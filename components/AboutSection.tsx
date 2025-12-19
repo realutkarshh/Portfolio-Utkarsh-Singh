@@ -126,7 +126,7 @@ function Marquee({ skills }: { skills: string[] }) {
         {[...skills, ...skills].map((skill, index) => (
           <div
             key={index}
-            className="py-4 px-4 bg-gray-50 rounded-xl text-center"
+            className="py-4 px-4 rounded-xl text-center"
             style={{ minWidth: "120px" }}
           >
             <span className="text-sm font-medium text-gray-700">
