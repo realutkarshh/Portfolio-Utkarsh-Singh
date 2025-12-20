@@ -148,7 +148,7 @@ export default function FAQSection() {
                   out to me directly.
                 </p>
                 <a
-                  href="mailto:your.email@example.com"
+                  href="mailto:realutkarshhl@gmail.com"
                   className="inline-flex items-center text-gray-900 hover:text-black transition-colors duration-300 text-base sm:text-lg font-normal border-b-2 border-gray-900"
                 >
                   Get in touch
