@@ -5,9 +5,9 @@ import { GeistMono } from "geist/font/mono"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "Utkarsh Singh | Portfolio & Software Developer",
+  title: "Utkarsh Singh | Full Stack Web Developer (React, Next.js)",
   description:
-    "Official portfolio of Utkarsh Singh – Full Stack Software Developer skilled in Next.js, React, and modern web technologies. Visit https://utkarsh.info to explore projects, resume, and contact details.",
+    "Official portfolio of Utkarsh Singh – Full Stack Software Developer skilled in Next.js, React, and modern web technologies. Visit this portfolio to explore projects, resume, and contact details.",
   keywords: [
     "Utkarsh Singh portfolio",
     "Utkarsh Singh web developer",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     description:
       "Portfolio of Utkarsh Singh – Full Stack Software Developer skilled in React, Next.js, and digital solutions. Visit https://utkarsh.info",
     images: ["https://utkarsh.info/preview.png"],
-    creator: "@yourtwitterhandle", // optional
+    creator: "@Utkarsh52762698", 
   },
   metadataBase: new URL("https://utkarsh.info"),
   alternates: {
