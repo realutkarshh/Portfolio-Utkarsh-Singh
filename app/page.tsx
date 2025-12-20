@@ -9,6 +9,7 @@ import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
 import ContactForm from "../components/ContactForm";
 import FAQSection from "@/components/FAQSection";
+import QuestionMarquee from "@/components/marqueeHeading";
 
 export default function Portfolio() {
   const [isContactFormOpen, setIsContactFormOpen] = useState(false);
@@ -42,6 +43,8 @@ export default function Portfolio() {
       <WorksSection />
       
       <ContactSection onContactFormOpen={handleContactFormOpen} />
+
+      <QuestionMarquee />
 
       <FAQSection />
             

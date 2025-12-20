@@ -136,3 +136,16 @@ body {
 body::-webkit-scrollbar {
   display: none;               /* Chrome, Safari */
 }
+
+@keyframes question-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-question-marquee {
+  animation: question-marquee 18s linear infinite;
+}
