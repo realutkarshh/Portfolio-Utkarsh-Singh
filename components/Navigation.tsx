@@ -44,8 +44,8 @@ export default function Navigation({ onContactFormOpen, scrollToSection }: Navig
     <nav 
       className={`fixed top-0 w-full z-50 transition-all duration-500 ease-out ${
         isScrolled 
-          ? 'bg-white/95 backdrop-blur-xl shadow-sm border-b border-gray-200/60' 
-          : 'bg-white/90 backdrop-blur-md border-b border-gray-100'
+          ? 'bg-white/20 backdrop-blur-xl shadow-sm border-b border-gray-200/60' 
+          : 'bg-white/20 backdrop-blur-md border-b border-gray-100'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -82,7 +82,7 @@ export default function Navigation({ onContactFormOpen, scrollToSection }: Navig
                 {item.href ? (
                   <Link 
                     href={item.href} 
-                    className="text-gray-600 hover:text-black transition-colors duration-300 font-light relative group"
+                    className="text-gray-900 hover:text-black transition-colors duration-300 font-light relative group"
                   >
                     {item.name}
                     <span className="absolute -bottom-1 left-0 w-0 h-px bg-black transition-all duration-300 group-hover:w-full"></span>
@@ -90,7 +90,7 @@ export default function Navigation({ onContactFormOpen, scrollToSection }: Navig
                 ) : (
                   <button
                     onClick={item.action}
-                    className="text-gray-600 hover:text-black transition-colors duration-300 font-light relative group"
+                    className="text-gray-900 hover:text-black transition-colors duration-300 font-light relative group"
                   >
                     {item.name}
                     <span className="absolute -bottom-1 left-0 w-0 h-px bg-black transition-all duration-300 group-hover:w-full"></span>
@@ -106,7 +106,7 @@ export default function Navigation({ onContactFormOpen, scrollToSection }: Navig
               style={{ transitionDelay: '700ms' }}
             >
               <Button
-                className="group bg-black text-white hover:bg-black cursor-pointer rounded-full px-6 py-2 text-sm font-medium transition-all duration-300 hover:scale-105 active:scale-95"
+                className="group bg-black text-white hover:bg-black cursor-pointer rounded-full px-6 py-2 text-sm font-normal transition-all duration-300 hover:scale-105 active:scale-95"
                 onClick={onContactFormOpen}
               >
                 Let's Talk

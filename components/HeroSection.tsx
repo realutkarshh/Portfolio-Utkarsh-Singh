@@ -102,9 +102,7 @@ export default function HeroSection({ onContactFormOpen }: HeroSectionProps) {
               style={{ transitionDelay: "800ms" }}
             >
               <p className="text-gray-600 max-w-lg leading-relaxed text-lg">
-                A multidisciplinary developer focused on creating exceptional
-                digital experiences through thoughtful design and robust
-                engineering.
+                
               </p>
             </div>
           </div>
@@ -127,6 +125,7 @@ export default function HeroSection({ onContactFormOpen }: HeroSectionProps) {
                 />
                 <div className="absolute inset-0"></div>
               </div>
+                <p className="font-normal ">Hello World !</p>
             </div>
           </div>
         </div>

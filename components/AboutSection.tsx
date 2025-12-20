@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function AboutSection() {
   const skills = [
@@ -11,79 +11,98 @@ export default function AboutSection() {
     "Python",
     "PostgreSQL",
     "JavaScript",
-    "Github",
+    "GitHub",
   ];
 
-  return (
-    <section id="about" className="py-24 px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-20">
-          <h2 className="text-6xl lg:text-7xl font-normal text-gray-900 tracking-tight">
-            Who am I ?
-          </h2>
-        </div>
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
-        {/* Main Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 lg:gap-20 items-start">
-          {/* Text Content */}
-          <div className="lg:col-span-3 space-y-12">
-            <div className="space-y-8">
-              <p className="text-xl lg:text-2xl font-light text-gray-900 leading-relaxed">
-                I'm a passionate full-stack developer with over 5 years of
-                experience creating digital solutions that bridge the gap
-                between design and functionality.
-              </p>
-              <p className="text-lg text-gray-600 leading-relaxed font-light">
-                My journey began with a curiosity for how things work, which
-                evolved into a love for building them. I specialize in modern
-                web technologies and combine technical expertise with design
-                sensibility.
-              </p>
-              <p className="text-lg text-gray-600 leading-relaxed font-light">
-                When I'm not coding, you'll find me exploring new technologies,
-                contributing to open-source projects, or sharing knowledge with
-                the developer community.
-              </p>
-            </div>
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section
+      ref={sectionRef}
+      id="about"
+      className="py-28 px-6 lg:px-8 bg-[#f3f3f3]"
+    >
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* LEFT CONTENT */}
+          <div className="space-y-10">
+            {/* Badge */}
+            <span
+              className={`inline-block px-4 py-1 text-sm rounded-full border border-gray-200 text-gray-600
+              transition-all duration-700 ease-out
+              ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+            >
+              About Me
+            </span>
+
+            {/* Heading */}
+            <h2
+              className={`text-5xl sm:text-6xl lg:text-7xl font-normal tracking-tight text-gray-900 leading-tight
+              transition-all duration-700 delay-100 ease-out
+              ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+            >
+              Driven – And <br /> Adaptable
+            </h2>
+
+            {/* Description */}
+            <p
+              className={`text-lg lg:text-2xl text-gray-600 max-w-xl leading-relaxed
+              transition-all duration-700 delay-200 ease-out
+              ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+            >
+              <span className="text-gray-900">Passionate about building modern digital experiences. With 5+ years
+              in full-stack development </span> <span className="text-gray-600">, I blend strong engineering with thoughtful
+              design to create scalable, user-focused solutions.</span>
+            </p>
+
+          
 
             {/* Technologies */}
-            <div className="pt-8">
+            <div
+              className={`pt-10 transition-all duration-700 delay-500 ease-out
+              ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+            >
               <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-6">
                 Technologies
               </h3>
-
-              {/* Animated marquee */}
-              <div className="relative overflow-hidden">
-                <Marquee skills={skills} />
-              </div>
+              <Marquee skills={skills} />
             </div>
           </div>
 
-          {/* Image */}
-          <div className="lg:col-span-2">
-            <div className="relative">
-              <div className="aspect-[4/5] w-full max-w-sm mx-auto lg:max-w-full">
-                <div
-                  className="w-full h-full bg-gradient-to-b from-gray-100 to-gray-200
-                             rounded-2xl overflow-hidden shadow-xl
-                             hover:shadow-2xl transition-shadow duration-500"
-                >
-                  <img
-                    src="/black-and-white-artistic-developer-workspace-with-.png"
-                    alt="Developer workspace"
-                    className="w-full h-full object-cover hover:scale-105
-                               transition-transform duration-700"
-                  />
-                </div>
+          {/* RIGHT IMAGE */}
+          <div
+            className={`relative transition-all duration-1000 ease-out
+            `}
+          >
+            <div className="aspect-[4/5] w-full max-w-sm mx-auto lg:max-w-full">
+              <div className="w-full h-full">
+                <img
+                  src="/about-img.png"
+                  alt="Developer workspace"
+                  className="w-full h-full object-contain "
+                />
               </div>
-
-              {/* Subtle accent element */}
-              <div
-                className="absolute -bottom-4 -right-4 w-20 h-20
-                           bg-blue-500 rounded-full opacity-10 blur-xl"
-              ></div>
             </div>
+
+            <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-blue-500 rounded-full opacity-10 blur-xl" />
           </div>
         </div>
       </div>
@@ -91,9 +110,6 @@ export default function AboutSection() {
   );
 }
 
-/* -------------------------------------------------------------------------- */
-/*                               Marquee Component                             */
-/* -------------------------------------------------------------------------- */
 
 function Marquee({ skills }: { skills: string[] }) {
   const trackRef = useRef<HTMLDivElement | null>(null);
@@ -103,13 +119,12 @@ function Marquee({ skills }: { skills: string[] }) {
     if (!track) return;
 
     let position = 0;
-    const speed = 0.6; // smaller = slower
+    const speed = 0.5;
 
     const animate = () => {
       position -= speed;
       track.style.transform = `translateX(${position}px)`;
 
-      // Reset when half the track is gone
       if (Math.abs(position) >= track.scrollWidth / 2) {
         position = 0;
       }
@@ -121,24 +136,22 @@ function Marquee({ skills }: { skills: string[] }) {
   }, []);
 
   return (
-    <div className="relative">
-      <div ref={trackRef} className="flex gap-3 w-max">
+    <div className="relative overflow-hidden">
+      <div ref={trackRef} className="flex gap-4 w-max">
         {[...skills, ...skills].map((skill, index) => (
           <div
             key={index}
-            className="py-4 px-4 rounded-xl text-center"
+            className="px-4 py-3 rounded-xl bg-[#f3f3f3] text-sm font-medium text-gray-800"
             style={{ minWidth: "120px" }}
           >
-            <span className="text-sm font-medium text-gray-700">
-              {skill}
-            </span>
+            {skill}
           </div>
         ))}
       </div>
 
       {/* Fade edges */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-white to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#f3f3f3] to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#f3f3f3] to-transparent" />
     </div>
   );
 }

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Navigation from "../components/Navigation";
-import HeroSection from "../components/HeroSection";
+// import HeroSection from "../components/HeroSection";
 import AboutSection from "../components/AboutSection";
 import WorksSection from "../components/WorksSection";
 import ContactSection from "../components/ContactSection";
@@ -10,6 +10,7 @@ import Footer from "../components/Footer";
 import ContactForm from "../components/ContactForm";
 import FAQSection from "@/components/FAQSection";
 import QuestionMarquee from "@/components/marqueeHeading";
+import HeroSection from "@/components/hero-section-new";
 
 export default function Portfolio() {
   const [isContactFormOpen, setIsContactFormOpen] = useState(false);
@@ -36,7 +37,8 @@ export default function Portfolio() {
         scrollToSection={scrollToSection}
       />
       
-      <HeroSection onContactFormOpen={handleContactFormOpen} />
+      {/* <HeroSection onContactFormOpen={handleContactFormOpen} /> */}
+      <HeroSection/>
       
       <AboutSection />
       
