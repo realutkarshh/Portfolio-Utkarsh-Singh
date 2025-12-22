@@ -1,209 +1,195 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, X } from "lucide-react";
 import Link from "next/link";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(useGSAP);
 
 interface NavigationProps {
   onContactFormOpen: () => void;
   scrollToSection: (sectionId: string) => void;
 }
 
-export default function Navigation({ onContactFormOpen, scrollToSection }: NavigationProps) {
+export default function Navigation({
+  onContactFormOpen,
+  scrollToSection,
+}: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const timelineRef = useRef<gsap.core.Timeline | null>(null);
+
+  const navItems = [
+    { name: "HOME", href: "/" },
+    { name: "ABOUT", sectionId: "about" },
+    { name: "WORKS", sectionId: "works" },
+    { name: "PROJECTS", href: "/projects" },
+    { name: "CONTACT", sectionId: "contact" },
+  ];
 
   useEffect(() => {
-    // Animation on mount
-    setIsVisible(true);
-
-    // Scroll detection for enhanced backdrop
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleScrollToSection = (sectionId: string) => {
-    scrollToSection(sectionId);
+  // GSAP animation setup
+  useGSAP(
+    () => {
+      // Set initial state: invisible and below
+      gsap.set(".menu-link-item-holder", { y: 100, opacity: 0 });
+
+      timelineRef.current = gsap
+        .timeline({ paused: true })
+        .to(".menu-overlay-nav", {
+          duration: 1.25,
+          clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+          ease: "power4.inOut",
+        })
+        .to(
+          ".menu-link-item-holder",
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            stagger: 0.1,
+            ease: "power4.inOut",
+            delay: -0.75,
+          }
+        );
+    },
+    { scope: containerRef }
+  );
+
+  useEffect(() => {
+    if (!timelineRef.current) return;
+    if (isMenuOpen) {
+      timelineRef.current.play();
+    } else {
+      timelineRef.current.reverse();
+    }
+  }, [isMenuOpen]);
+
+  const handleNavClick = (item: (typeof navItems)[number]) => {
+    if (item.sectionId) {
+      scrollToSection(item.sectionId);
+    }
     setIsMenuOpen(false);
   };
 
-  const navItems = [
-    { name: "ABOUT", action: () => handleScrollToSection("about") },
-    { name: "WORKS", action: () => handleScrollToSection("works") },
-    { name: "PROJECTS", href: "/projects" },
-    { name: "CONTACT", action: () => handleScrollToSection("contact") },
-  ];
+  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
   return (
-    <nav 
-      className={`fixed top-0 w-full z-50 transition-all duration-500 ease-out ${
-        isScrolled 
-          ? 'bg-white/20 backdrop-blur-xl shadow-sm border-b border-gray-200/60' 
-          : 'bg-white/20 backdrop-blur-md border-b border-gray-100'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          {/* Logo */}
-          <div
-            className={`transform transition-all duration-700 ease-out ${
-              isVisible ? 'translate-x-0 opacity-100' : '-translate-x-4 opacity-0'
-            }`}
-          >
-            <Link
-              href="/"
-              className="font-light text-xl text-gray-900 hover:text-black transition-colors duration-300 tracking-wide"
-            >
-              UTKARSH SINGH
-            </Link>
-          </div>
+    <div ref={containerRef}>
+     
+      <nav className="fixed top-0 w-full z-40 transition-all duration-500 ease-out">
+  <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <div className="flex justify-between items-center h-20">
+      {/* Logo */}
+      <Link
+        href="/"
+        className="font-light text-xl text-gray-900 hover:text-black transition-colors duration-300 tracking-wide"
+      >
+        UTKARSH SINGH
+      </Link>
 
-          {/* Desktop Navigation */}
-          <div 
-            className={`hidden md:flex items-center space-x-8 transform transition-all duration-700 ease-out ${
-              isVisible ? 'translate-y-0 opacity-100' : '-translate-y-2 opacity-0'
-            }`}
-            style={{ transitionDelay: '200ms' }}
+      {/* Menu Button - Rounded */}
+      <button
+        onClick={toggleMenu}
+        className="relative z-50 flex items-center gap-3 px-5 py-2.5 text-sm font-light text-gray-900 hover:text-black transition-all duration-300 group rounded-full border border-gray-200 hover:border-gray-900 bg-white/80 backdrop-blur-sm hover:bg-white"
+      >
+        <span className="tracking-wide">Menu</span>
+        <div className="relative w-6 h-6">
+          <span
+            className={`absolute top-2 left-0 w-6 h-0.5 bg-gray-900 transition-all duration-300 ease-out`}
+          />
+          <span
+            className={`absolute top-[14px] left-0 w-6 h-0.5 bg-gray-900 transition-all duration-300 ease-out`}
+          />
+          <span
+            className={`absolute top-[20px] left-0 w-6 h-0.5 bg-gray-900 transition-all duration-300 ease-out`}
+          />
+        </div>
+      </button>
+    </div>
+  </div>
+</nav>
+
+
+      {/* Full-Screen Overlay Menu */}
+      <div
+        className="menu-overlay-nav fixed inset-0 w-screen h-screen bg-gray-950 z-50 flex items-center justify-center"
+        style={{
+          clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+          pointerEvents: isMenuOpen ? "auto" : "none",
+        }}
+      >
+        <div className="max-w-6xl mx-auto px-6 lg:px-10 w-full">
+          {/* Close Button */}
+          <button
+            onClick={toggleMenu}
+            className="fixed top-8 right-6 lg:right-10 z-50 w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300"
           >
-            {navItems.map((item, index) => (
-              <div
-                key={item.name}
-                className={`transform transition-all duration-500 ease-out ${
-                  isVisible ? 'translate-y-0 opacity-100' : '-translate-y-2 opacity-0'
-                }`}
-                style={{ transitionDelay: `${300 + index * 100}ms` }}
-              >
-                {item.href ? (
-                  <Link 
-                    href={item.href} 
-                    className="text-gray-900 hover:text-black transition-colors duration-300 font-light relative group"
-                  >
-                    {item.name}
-                    <span className="absolute -bottom-1 left-0 w-0 h-px bg-black transition-all duration-300 group-hover:w-full"></span>
-                  </Link>
-                ) : (
-                  <button
-                    onClick={item.action}
-                    className="text-gray-900 hover:text-black transition-colors duration-300 font-light relative group"
-                  >
-                    {item.name}
-                    <span className="absolute -bottom-1 left-0 w-0 h-px bg-black transition-all duration-300 group-hover:w-full"></span>
-                  </button>
-                )}
+            <X className="w-8 h-8 text-white" />
+          </button>
+
+          {/* Navigation Links */}
+          <div className="space-y-4 sm:space-y-6">
+            {navItems.map((item) => (
+              <div key={item.name} className="menu-link-item w-max overflow-hidden h-[3rem] sm:h-[5rem] md:h-[6.5rem] lg:h-[5.4rem]">
+                <div className= "cursor-pointer menu-link-item-holder relative">
+                  {item.href ? (
+                    <Link
+                      href={item.href}
+                      onClick={() => setIsMenuOpen(false)}
+                      className="cursor-pointer block text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light text-white hover:text-gray-300 tracking-tight transition-colors duration-300 leading-none"
+                    >
+                      {item.name}
+                    </Link>
+                  ) : (
+                    <button
+                      onClick={() => handleNavClick(item)}
+                      className="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light text-white hover:text-gray-300 tracking-tight transition-colors duration-300 leading-none"
+                    >
+                      {item.name}
+                    </button>
+                  )}
+                </div>
               </div>
             ))}
-            
-            <div
-              className={`transform transition-all duration-700 ease-out ${
-                isVisible ? 'translate-x-0 opacity-100 scale-100' : 'translate-x-4 opacity-0 scale-95'
-              }`}
-              style={{ transitionDelay: '700ms' }}
-            >
+          </div>
+
+          {/* Bottom Section */}
+          <div className="fixed bottom-8 left-6 right-6 lg:left-10 lg:right-10 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-8">
+            {/* CTA Button */}
+            <div className="menu-link-item-holder">
               <Button
-                className="group bg-black text-white hover:bg-black cursor-pointer rounded-full px-6 py-2 text-sm font-normal transition-all duration-300 hover:scale-105 active:scale-95"
-                onClick={onContactFormOpen}
+                onClick={() => {
+                  onContactFormOpen();
+                  setIsMenuOpen(false);
+                }}
+                className="bg-white text-black hover:bg-gray-200 rounded-full px-8 py-4 text-base font-medium transition-all duration-300"
               >
                 Let's Talk
-                <ArrowRight size={14} className="ml-2 transition-transform duration-300 group-hover:translate-x-0.5" />
+                <ArrowRight size={16} className="ml-2" />
               </Button>
             </div>
-          </div>
 
-          {/* Mobile Navigation Button */}
-          <div
-            className={`md:hidden transform transition-all duration-700 ease-out ${
-              isVisible ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'
-            }`}
-            style={{ transitionDelay: '400ms' }}
-          >
-            <button
-              className="p-3 hover:bg-gray-100 rounded-full transition-colors duration-200"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              <div className="relative w-6 h-6">
-                <span
-                  className={`absolute top-1 left-0 w-6 h-0.5 bg-black transition-all duration-300 ease-out ${
-                    isMenuOpen ? "rotate-45 top-3" : ""
-                  }`}
-                />
-                <span
-                  className={`absolute top-3 left-0 w-6 h-0.5 bg-black transition-all duration-300 ease-out ${
-                    isMenuOpen ? "opacity-0" : ""
-                  }`}
-                />
-                <span
-                  className={`absolute top-5 left-0 w-6 h-0.5 bg-black transition-all duration-300 ease-out ${
-                    isMenuOpen ? "-rotate-45 top-3" : ""
-                  }`}
-                />
-              </div>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Navigation Menu */}
-      <div
-        className={`md:hidden bg-white/98 backdrop-blur-xl border-t border-gray-100 transition-all duration-400 ease-out ${
-          isMenuOpen
-            ? "max-h-96 opacity-100"
-            : "max-h-0 opacity-0 overflow-hidden"
-        }`}
-      >
-        <div className="px-6 py-8 space-y-6">
-          {navItems.map((item, index) => (
-            <div
-              key={item.name}
-              className={`transform transition-all duration-500 ease-out ${
-                isMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'
-              }`}
-              style={{ transitionDelay: `${index * 100}ms` }}
-            >
-              {item.href ? (
-                <Link
-                  href={item.href}
-                  className="block text-left text-gray-600 hover:text-black text-lg font-light transition-colors duration-300"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ) : (
-                <button
-                  onClick={item.action}
-                  className="block text-left text-gray-600 hover:text-black text-lg font-light transition-colors duration-300"
-                >
-                  {item.name}
-                </button>
-              )}
+            {/* Contact Info */}
+            <div className="text-sm text-gray-400 space-y-1 menu-link-item-holder">
+              <p>realutkarshhl@gmail.com</p>
+              <p>Available for new projects</p>
             </div>
-          ))}
-          
-          <div
-            className={`pt-4 transform transition-all duration-500 ease-out ${
-              isMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'
-            }`}
-            style={{ transitionDelay: '400ms' }}
-          >
-            <Button
-              className="w-full bg-black text-white hover:bg-gray-800 rounded-full py-3 text-base font-medium transition-colors duration-300"
-              onClick={() => {
-                onContactFormOpen();
-                setIsMenuOpen(false);
-              }}
-            >
-              Let's Talk
-              <ArrowRight size={16} className="ml-2" />
-            </Button>
           </div>
         </div>
       </div>
-    </nav>
+    </div>
   );
 }

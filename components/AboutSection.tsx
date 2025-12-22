@@ -1,17 +1,27 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import {
+  SiReact,
+  SiExpress,
+  SiTypescript,
+  SiNodedotjs,
+  SiPython,
+  SiPostgresql,
+  SiJavascript,
+  SiGithub,
+} from "react-icons/si";
 
 export default function AboutSection() {
   const skills = [
-    "React",
-    "Express",
-    "TypeScript",
-    "Node.js",
-    "Python",
-    "PostgreSQL",
-    "JavaScript",
-    "GitHub",
+    { name: "React", icon: SiReact, color: "#61DAFB" },
+    { name: "Express", icon: SiExpress, color: "#000000" },
+    { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+    { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
+    { name: "Python", icon: SiPython, color: "#3776AB" },
+    { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
+    { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+    { name: "GitHub", icon: SiGithub, color: "#181717" },
   ];
 
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -68,12 +78,15 @@ export default function AboutSection() {
               transition-all duration-700 delay-200 ease-out
               ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
             >
-              <span className="text-gray-900">Passionate about building modern digital experiences. With 5+ years
-              in full-stack development </span> <span className="text-gray-600">, I blend strong engineering with thoughtful
-              design to create scalable, user-focused solutions.</span>
+              <span className="text-gray-900">
+                Passionate about building modern digital experiences. With 5+
+                years in full-stack development{" "}
+              </span>{" "}
+              <span className="text-gray-600">
+                , I blend strong engineering with thoughtful design to create
+                scalable, user-focused solutions.
+              </span>
             </p>
-
-          
 
             {/* Technologies */}
             <div
@@ -88,10 +101,7 @@ export default function AboutSection() {
           </div>
 
           {/* RIGHT IMAGE */}
-          <div
-            className={`relative transition-all duration-1000 ease-out
-            `}
-          >
+          <div className={`relative transition-all duration-1000 ease-out`}>
             <div className="aspect-[4/5] w-full max-w-sm mx-auto lg:max-w-full">
               <div className="w-full h-full">
                 <img
@@ -110,8 +120,11 @@ export default function AboutSection() {
   );
 }
 
-
-function Marquee({ skills }: { skills: string[] }) {
+function Marquee({
+  skills,
+}: {
+  skills: Array<{ name: string; icon: any; color: string }>;
+}) {
   const trackRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -138,15 +151,21 @@ function Marquee({ skills }: { skills: string[] }) {
   return (
     <div className="relative overflow-hidden">
       <div ref={trackRef} className="flex gap-4 w-max">
-        {[...skills, ...skills].map((skill, index) => (
-          <div
-            key={index}
-            className="px-4 py-3 rounded-xl bg-[#f3f3f3] text-sm font-medium text-gray-800"
-            style={{ minWidth: "120px" }}
-          >
-            {skill}
-          </div>
-        ))}
+        {[...skills, ...skills].map((skill, index) => {
+          const Icon = skill.icon;
+          return (
+            <div
+              key={index}
+              className="flex items-center justify-center px-5 py-4 rounded-xl bg-gray-[#f3f3f3] border border-gray-100 hover:border-gray-200 transition-all duration-300 hover:shadow-sm"
+              style={{ minWidth: "80px" }}
+            >
+              <Icon
+                className="w-8 h-8"
+                style={{ color: skill.color }}
+              />
+            </div>
+          );
+        })}
       </div>
 
       {/* Fade edges */}

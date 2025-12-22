@@ -11,6 +11,7 @@ import ContactForm from "../components/ContactForm";
 import FAQSection from "@/components/FAQSection";
 import QuestionMarquee from "@/components/marqueeHeading";
 import HeroSection from "@/components/hero-section-new";
+import CurrentRoleSection from "@/components/current-role-section";
 
 export default function Portfolio() {
   const [isContactFormOpen, setIsContactFormOpen] = useState(false);
@@ -41,6 +42,8 @@ export default function Portfolio() {
       <HeroSection/>
       
       <AboutSection />
+
+      <CurrentRoleSection />
       
       <WorksSection />
       

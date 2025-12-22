@@ -80,7 +80,7 @@ export default function WorksSection() {
               style={{ transitionDelay: `${600 + index * 200}ms` }}
             >
               <Link href={project.link}>
-                <div className="group border border-gray-100 rounded-2xl p-8 transition-all duration-300 bg-white">
+                <div className="group rounded-2xl p-8 transition-all duration-300 bg-white">
                   <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between">
                     <div className="flex items-center justify-between lg:justify-start lg:space-x-4">
                       <h3 className="relative text-4xl font-light text-gray-900 group-hover:text-black transition-colors duration-300">

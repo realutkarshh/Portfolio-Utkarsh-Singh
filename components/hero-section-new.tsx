@@ -28,18 +28,18 @@ const HeroSection: FC = () => {
         <div className="absolute inset-x-0 bottom-0 h-[45vh] bg-gradient-to-b from-transparent via-white/60 to-white" />
       </div>
 
-      <div className="relative max-w-6xl mx-auto px-6 lg:px-10 pt-28 pb-12 lg:pt-32 lg:pb-16 min-h-screen flex flex-col">
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-10 pt-28 pb-12 lg:pt-32 lg:pb-16 min-h-screen flex flex-col">
         {/* Heading */}
         <div className="flex-1 flex items-start lg:items-center">
           <h1 className="text-[5rem] leading-[1.03] sm:text-[3.6rem] md:text-[4.4rem] lg:text-[5rem] xl:text-[5.4rem] font-light tracking-tight text-slate-900">
             <span
-              className={`block lg:text-9xl font-normal lg:ml-40 transition-all duration-700 ease-out
+              className={`block lg:text-[9rem] font-normal lg:ml-40 transition-all duration-700 ease-out
               ${loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
             >
               Digital – Visual
             </span>
             <span
-              className={`block lg:text-9xl font-normal transition-all duration-700 delay-150 ease-out
+              className={`block lg:text-[9rem] font-normal transition-all duration-700 delay-150 ease-out
               ${loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
             >
               Designer
