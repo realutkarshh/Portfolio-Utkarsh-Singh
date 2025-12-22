@@ -49,7 +49,7 @@ const HeroSection: FC = () => {
 
         {/* Bottom section */}
         <div className="flex-none pb-6 lg:pb-10">
-          <div className="border-t border-slate-200 pt-10 lg:pt-12 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-12">
+          <div className="pt-10 lg:pt-12 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-12">
             {/* Left */}
             <div
               className={`max-w-lg space-y-6 transition-all duration-700 delay-300
