@@ -64,10 +64,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* Google Site Verification */}
-        <meta
-          name="google-site-verification"
-          content="GPWRnz-Hj26lMCz8si_tNyCQ4uJb_8sbKCQYS2qUMK0"
-        />
+        <meta name="google-site-verification" content="UCLwANhQm5LNv_6kCRR0y4VzsHulonRe_xOGFLGPhnc" />
 
         {/* Structured Data (JSON-LD for personal portfolio) */}
         <script
