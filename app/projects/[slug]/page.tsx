@@ -15,7 +15,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 const projects = {
-  helixsearch: {
+ helixsearch: {
     title: "Helix Search Engine",
     description: "An independent, full-stack search engine built from scratch",
     longDescription:
@@ -271,7 +271,7 @@ const projects = {
   },
 };
 
-// Image Carousel Component
+/* Image Carousel Component */
 function ImageCarousel({ images }: { images: string[] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -320,17 +320,17 @@ function ImageCarousel({ images }: { images: string[] }) {
         <>
           <button
             onClick={handlePrevious}
-            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100 hover:bg-white hover:scale-110 shadow-lg"
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gray-900/80 backdrop-blur-sm flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100 hover:bg-gray-100 hover:scale-110 shadow-lg border border-gray-700"
             aria-label="Previous image"
           >
-            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-gray-900" />
+            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-gray-100 group-hover:text-gray-900" />
           </button>
           <button
             onClick={handleNext}
-            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100 hover:bg-white hover:scale-110 shadow-lg"
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gray-900/80 backdrop-blur-sm flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100 hover:bg-gray-100 hover:scale-110 shadow-lg border border-gray-700"
             aria-label="Next image"
           >
-            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-gray-900" />
+            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-gray-100 group-hover:text-gray-900" />
           </button>
         </>
       )}
@@ -378,10 +378,8 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
   const project = projects[params.slug as keyof typeof projects];
 
   useEffect(() => {
-    // Header animation
     setTimeout(() => setIsVisible(true), 100);
 
-    // Setup intersection observers
     const observerOptions = {
       threshold: 0.1,
       rootMargin: "50px",
@@ -405,15 +403,13 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
 
     if (imageRef.current) imageObserver.observe(imageRef.current);
     if (detailsRef.current) detailsObserver.observe(detailsRef.current);
-    if (challengesRef.current)
-      challengesObserver.observe(challengesRef.current);
+    if (challengesRef.current) challengesObserver.observe(challengesRef.current);
     if (ctaRef.current) ctaObserver.observe(ctaRef.current);
 
     return () => {
       if (imageRef.current) imageObserver.unobserve(imageRef.current);
       if (detailsRef.current) detailsObserver.unobserve(detailsRef.current);
-      if (challengesRef.current)
-        challengesObserver.unobserve(challengesRef.current);
+      if (challengesRef.current) challengesObserver.unobserve(challengesRef.current);
       if (ctaRef.current) ctaObserver.unobserve(ctaRef.current);
     };
   }, []);
@@ -423,21 +419,21 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gray-950 text-gray-100">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-xl z-50 border-b border-gray-100">
+      <nav className="fixed top-0 w-full bg-gray-950/85 backdrop-blur-xl z-50 border-b border-gray-800">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <Link
               href="/projects"
-              className="flex items-center text-gray-600 hover:text-black transition-colors duration-300 font-light"
+              className="flex items-center text-gray-300 hover:text-gray-100 transition-colors duration-300 font-light"
             >
               <ArrowLeft size={18} className="mr-3" />
               Back to projects
             </Link>
             <Link
               href="/"
-              className="font-light text-xl text-gray-900 tracking-wide"
+              className="font-light text-xl text-gray-100 tracking-wide"
             >
               Utkarsh Singh
             </Link>
@@ -450,12 +446,10 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         <div className="max-w-4xl mx-auto">
           <div
             className={`flex items-center space-x-4 mb-8 transform transition-all duration-1000 ease-out ${
-              isVisible
-                ? "translate-y-0 opacity-100"
-                : "translate-y-8 opacity-0"
+              isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
             }`}
           >
-            <span className="px-4 py-2 bg-gray-50 text-gray-600 text-sm rounded-full font-medium">
+            <span className="px-4 py-2 bg-gray-900 text-gray-200 text-sm rounded-full font-medium border border-gray-700">
               {project.category}
             </span>
             <span className="text-sm text-gray-400 flex items-center font-light">
@@ -466,41 +460,35 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
 
           <div
             className={`transform transition-all duration-1000 ease-out ${
-              isVisible
-                ? "translate-y-0 opacity-100"
-                : "translate-y-12 opacity-0"
+              isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
             }`}
             style={{ transitionDelay: "200ms" }}
           >
-            <h1 className="text-5xl lg:text-6xl font-light text-gray-900 mb-6 tracking-tight leading-tight">
+            <h1 className="text-5xl lg:text-6xl font-light text-gray-100 mb-6 tracking-tight leading-tight">
               {project.title}
             </h1>
-            <div className="w-16 h-px bg-gray-300 mb-8"></div>
+            <div className="w-16 h-px bg-gray-700 mb-8" />
           </div>
 
           <div
             className={`transform transition-all duration-1000 ease-out ${
-              isVisible
-                ? "translate-y-0 opacity-100"
-                : "translate-y-8 opacity-0"
+              isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
             }`}
             style={{ transitionDelay: "400ms" }}
           >
-            <p className="text-xl font-light text-gray-600 mb-12 leading-relaxed">
+            <p className="text-xl font-light text-gray-300 mb-12 leading-relaxed">
               {project.longDescription}
             </p>
           </div>
 
           <div
             className={`flex flex-col sm:flex-row gap-4 transform transition-all duration-1000 ease-out ${
-              isVisible
-                ? "translate-y-0 opacity-100"
-                : "translate-y-8 opacity-0"
+              isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
             }`}
             style={{ transitionDelay: "600ms" }}
           >
             <Button
-              className="group bg-black text-white hover:bg-gray-800 rounded-full px-8 py-4 text-base font-medium transition-all duration-300 hover:scale-105 active:scale-95"
+              className="group bg-gray-100 text-gray-900 hover:bg-white rounded-full px-8 py-4 text-base font-medium transition-all duration-300 hover:scale-105 active:scale-95"
               asChild
             >
               <a
@@ -517,7 +505,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             </Button>
             <Button
               variant="outline"
-              className="group rounded-full border-gray-300 text-gray-700 hover:bg-gray-100 hover:border-gray-400 px-8 py-4 text-base font-medium bg-white transition-all duration-300 hover:scale-105 active:scale-95"
+              className="group rounded-full border-gray-700 text-gray-200 hover:bg-gray-900 hover:border-gray-500 px-8 py-4 text-base font-medium bg-gray-950 transition-all duration-300 hover:scale-105 active:scale-95"
               asChild
             >
               <a
@@ -537,7 +525,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
       <section className="pb-24 px-6 lg:px-8 object-fill" ref={imageRef}>
         <div className="max-w-6xl mx-auto">
           <div
-            className={`aspect-[16/10] bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl overflow-hidden shadow-xl transform transition-all duration-1000 ease-out ${
+            className={`aspect-[16/10] bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl overflow-hidden shadow-2xl border border-gray-800 transform transition-all duration-1000 ease-out ${
               imageVisible
                 ? "translate-y-0 opacity-100 scale-100"
                 : "translate-y-8 opacity-0 scale-95"
@@ -560,14 +548,14 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                   : "-translate-x-8 opacity-0"
               }`}
             >
-              <h2 className="text-3xl font-light text-gray-900 mb-8 tracking-tight">
+              <h2 className="text-3xl font-light text-gray-100 mb-8 tracking-tight">
                 Technologies
               </h2>
               <div className="grid grid-cols-2 gap-3">
                 {project.technologies.map((tech, index) => (
                   <div
                     key={tech}
-                    className="px-4 py-3 bg-gray-50 text-gray-700 rounded-xl text-sm font-medium hover:bg-gray-100 transition-colors duration-300 text-center"
+                    className="px-4 py-3 bg-gray-900 text-gray-200 rounded-xl text-sm font-medium hover:bg-gray-800 border border-gray-800 transition-colors duration-300 text-center"
                     style={{
                       transform: detailsVisible
                         ? "translateY(0)"
@@ -591,7 +579,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
               }`}
               style={{ transitionDelay: "200ms" }}
             >
-              <h2 className="text-3xl font-light text-gray-900 mb-8 tracking-tight">
+              <h2 className="text-3xl font-light text-gray-100 mb-8 tracking-tight">
                 Key Features
               </h2>
               <div className="space-y-4">
@@ -607,8 +595,8 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                       transitionDelay: `${200 + index * 50}ms`,
                     }}
                   >
-                    <div className="w-2 h-2 bg-black rounded-full mt-3 mr-4 flex-shrink-0"></div>
-                    <span className="text-gray-600 font-light leading-relaxed">
+                    <div className="w-2 h-2 bg-gray-100 rounded-full mt-3 mr-4 flex-shrink-0" />
+                    <span className="text-gray-300 font-light leading-relaxed">
                       {feature}
                     </span>
                   </div>
@@ -619,87 +607,39 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         </div>
       </section>
 
-      {/* Challenges */}
-      <section className="py-24 px-6 lg:px-8 bg-gray-50" ref={challengesRef}>
-        <div className="max-w-4xl mx-auto">
-          <div
-            className={`transform transition-all duration-1000 ease-out ${
-              challengesVisible
-                ? "translate-y-0 opacity-100"
-                : "translate-y-8 opacity-0"
-            }`}
-          >
-            <h2 className="text-4xl lg:text-5xl font-light text-gray-900 mb-4 tracking-tight text-center">
-              Challenges & Solutions
-            </h2>
-            <div className="w-16 h-px bg-gray-300 mx-auto mb-16"></div>
-          </div>
-
-          <div className="space-y-8">
-            {project.challenges.map((challenge, index) => (
-              <div
-                key={index}
-                className={`bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-sm transition-shadow duration-300 transform transition-all duration-1000 ease-out ${
-                  challengesVisible
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-8 opacity-0"
-                }`}
-                style={{ transitionDelay: `${300 + index * 150}ms` }}
-              >
-                <div className="flex items-start">
-                  <div className="w-8 h-8 bg-black text-white rounded-full flex items-center justify-center text-sm font-medium mr-6 mt-1 flex-shrink-0">
-                    {index + 1}
-                  </div>
-                  <p className="text-gray-600 leading-relaxed font-light text-lg">
-                    {challenge}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
-      <section className="py-24 px-6 lg:px-8" ref={ctaRef}>
+      <section className="py-24 px-6 lg:px-8 bg-gray-900 border-t border-gray-800" ref={ctaRef}>
         <div className="max-w-4xl mx-auto text-center">
           <div
             className={`transform transition-all duration-1000 ease-out ${
-              ctaVisible
-                ? "translate-y-0 opacity-100"
-                : "translate-y-8 opacity-0"
+              ctaVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
             }`}
           >
-            <h2 className="text-4xl lg:text-5xl font-light text-gray-900 mb-6 tracking-tight">
+            <h2 className="text-4xl lg:text-5xl font-light text-gray-100 mb-6 tracking-tight">
               More projects
             </h2>
-            <div className="w-12 h-px bg-gray-300 mx-auto mb-8"></div>
+            <div className="w-12 h-px bg-gray-700 mx-auto mb-8" />
           </div>
 
           <div
             className={`transform transition-all duration-1000 ease-out ${
-              ctaVisible
-                ? "translate-y-0 opacity-100"
-                : "translate-y-8 opacity-0"
+              ctaVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
             }`}
             style={{ transitionDelay: "300ms" }}
           >
-            <p className="text-xl font-light text-gray-600 mb-12 leading-relaxed">
-              Explore my other projects or get in touch to discuss your next
-              idea.
+            <p className="text-xl font-light text-gray-300 mb-12 leading-relaxed">
+              Explore my other projects or get in touch to discuss your next idea.
             </p>
           </div>
 
           <div
             className={`flex flex-col sm:flex-row gap-4 justify-center transform transition-all duration-1000 ease-out ${
-              ctaVisible
-                ? "translate-y-0 opacity-100"
-                : "translate-y-8 opacity-0"
+              ctaVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
             }`}
             style={{ transitionDelay: "600ms" }}
           >
             <Button
-              className="group bg-black text-white hover:bg-gray-800 rounded-full px-8 py-4 text-base font-medium transition-all duration-300 hover:scale-105 active:scale-95"
+              className="group bg-gray-100 text-gray-900 hover:bg-white rounded-full px-8 py-4 text-base font-medium transition-all duration-300 hover:scale-105 active:scale-95"
               asChild
             >
               <Link href="/projects">
@@ -712,7 +652,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             </Button>
             <Button
               variant="outline"
-              className="rounded-full border-gray-300 text-gray-700 hover:bg-gray-100 hover:border-gray-400 px-8 py-4 text-base font-medium bg-white transition-all duration-300 hover:scale-105 active:scale-95"
+              className="rounded-full border-gray-700 text-gray-200 hover:bg-gray-950 hover:border-gray-500 px-8 py-4 text-base font-medium bg-gray-900 transition-all duration-300 hover:scale-105 active:scale-95"
               asChild
             >
               <a href="mailto:utkarsh2020051@gmail.com">Get in Touch</a>

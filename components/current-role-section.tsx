@@ -51,7 +51,7 @@ export default function CurrentWorkSection() {
                   }`}
                   style={{ transitionDelay: "200ms" }}
                 >
-                  <div className="inline-flex items-center text-xs sm:text-sm text-gray-500 tracking-[0.2em] uppercase">
+                  <div className="inline-flex items-center text-xs sm:text-sm text-gray-400 tracking-[0.2em] uppercase">
                     <span className="mr-3 h-px w-12 bg-gray-700" />
                     Working
                   </div>
@@ -59,7 +59,7 @@ export default function CurrentWorkSection() {
 
                 {/* Main heading */}
                 <h2
-                  className={`text-6xl sm:text-7xl lg:text-7xl xl:text-8xl font-light text-white tracking-tight transform transition-all duration-1000 ease-out ${
+                  className={`text-6xl sm:text-7xl lg:text-7xl xl:text-8xl font-light text-gray-100 tracking-tight transform transition-all duration-1000 ease-out ${
                     isVisible
                       ? "translate-y-0 opacity-100"
                       : "translate-y-8 opacity-0"
@@ -87,17 +87,17 @@ export default function CurrentWorkSection() {
                 <p className="text-sm sm:text-base text-gray-500 font-light tracking-wide">
                   2025 – Present
                 </p>
-                <h3 className="font-thin text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-white tracking-tight">
+                <h3 className="font-thin text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-gray-100 tracking-tight">
                   SecuriGeek
                 </h3>
-                <p className="text-xl sm:text-2xl lg:text-3xl text-gray-400 font-light">
+                <p className="text-xl sm:text-2xl lg:text-3xl text-gray-300 font-light">
                   Full Stack Developer Intern
                 </p>
               </div>
 
               {/* Description */}
               <p
-                className={`text-base sm:text-lg lg:text-xl text-gray-400 font-light leading-relaxed max-w-2xl transform transition-all duration-1000 ease-out ${
+                className={`text-base sm:text-lg lg:text-xl text-gray-300 font-light leading-relaxed max-w-2xl transform transition-all duration-1000 ease-out ${
                   isVisible
                     ? "translate-y-0 opacity-100"
                     : "translate-y-8 opacity-0"
@@ -122,7 +122,7 @@ export default function CurrentWorkSection() {
                   (tech, index) => (
                     <span
                       key={tech}
-                      className={`px-4 py-2 rounded-full bg-gray-950 border border-gray-800 text-sm sm:text-base text-gray-300 font-light hover:bg-gray-900 transition-all duration-300 transform ${
+                      className={`px-4 py-2 rounded-full bg-gray-900/40 border border-gray-800 text-sm sm:text-base text-gray-300 font-light hover:bg-gray-100 hover:text-gray-900 transition-all duration-300 transform ${
                         isVisible
                           ? "translate-y-0 opacity-100"
                           : "translate-y-4 opacity-0"
@@ -146,7 +146,7 @@ export default function CurrentWorkSection() {
               >
                 <Link
                   href="/projects"
-                  className="inline-flex items-center text-base sm:text-lg font-light text-white hover:text-gray-200 transition-all duration-300 group"
+                  className="inline-flex items-center text-base sm:text-lg font-light text-gray-100 hover:text-gray-200 transition-all duration-300 group"
                 >
                   View related work
                   <ArrowRight

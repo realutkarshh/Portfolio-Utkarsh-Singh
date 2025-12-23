@@ -95,28 +95,18 @@ export default function Navigation({
       {/* Logo */}
       <Link
         href="/"
-        className="font-light text-xl text-gray-900 hover:text-black transition-colors duration-300 tracking-wide"
+        className="font-light text-xl text-orange-500 hover:text-black transition-colors duration-300 tracking-wide"
       >
-        UTKARSH SINGH
+       
       </Link>
 
       {/* Menu Button - Rounded */}
       <button
         onClick={toggleMenu}
-        className="relative z-50 flex items-center gap-3 px-5 py-2.5 text-sm font-light text-gray-900 hover:text-black transition-all duration-300 group rounded-full border border-gray-200 hover:border-gray-900 bg-white/80 backdrop-blur-sm hover:bg-white"
+        className="relative z-50 flex items-center gap-3 px-5 py-2.5 text-xl font-light text-gray-900 hover:text-black transition-all duration-300 group rounded-full border border-gray-200 hover:border-gray-900 bg-white/80 backdrop-blur-sm hover:bg-white"
       >
-        <span className="tracking-wide">Menu</span>
-        <div className="relative w-6 h-6">
-          <span
-            className={`absolute top-2 left-0 w-6 h-0.5 bg-gray-900 transition-all duration-300 ease-out`}
-          />
-          <span
-            className={`absolute top-[14px] left-0 w-6 h-0.5 bg-gray-900 transition-all duration-300 ease-out`}
-          />
-          <span
-            className={`absolute top-[20px] left-0 w-6 h-0.5 bg-gray-900 transition-all duration-300 ease-out`}
-          />
-        </div>
+        <span className="tracking-wide font-normal">MENU</span>
+        
       </button>
     </div>
   </div>

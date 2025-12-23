@@ -57,7 +57,7 @@ export default function Footer() {
 
   return (
     <footer
-      className="py-20 px-6 lg:px-8 bg-gray-50 border-t border-gray-200"
+      className="py-20 px-6 lg:px-8 bg-gray-950 border-t border-gray-800"
       ref={footerRef}
     >
       <div className="max-w-6xl mx-auto">
@@ -66,17 +66,15 @@ export default function Footer() {
           {/* Brand Section */}
           <div
             className={`transform transition-all duration-1000 ease-out ${
-              isVisible
-                ? "translate-y-0 opacity-100"
-                : "translate-y-8 opacity-0"
+              isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
             }`}
             style={{ transitionDelay: "200ms" }}
           >
             <div className="space-y-4">
-              <h3 className="text-5xl font-light text-gray-900 tracking-tight">
+              <h3 className="text-5xl font-light text-gray-100 tracking-tight">
                 Thanks, Bye !
               </h3>
-              <p className="text-gray-600 font-light leading-relaxed max-w-sm">
+              <p className="text-gray-400 font-light leading-relaxed max-w-sm">
                 I appreciate you taking the time to explore my work. If
                 something here resonates with you, feel free to reach out.
               </p>
@@ -86,13 +84,11 @@ export default function Footer() {
           {/* Quick Links */}
           <div
             className={`transform transition-all duration-1000 ease-out ${
-              isVisible
-                ? "translate-y-0 opacity-100"
-                : "translate-y-8 opacity-0"
+              isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
             }`}
             style={{ transitionDelay: "400ms" }}
           >
-            <h4 className="text-sm font-medium text-gray-700 uppercase tracking-wider mb-6">
+            <h4 className="text-sm font-medium text-gray-400 uppercase tracking-wider mb-6">
               Navigate
             </h4>
             <div className="space-y-3">
@@ -100,7 +96,7 @@ export default function Footer() {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="block text-gray-600 hover:text-black transition-colors duration-300 font-light"
+                  className="block text-gray-300 hover:text-gray-100 transition-colors duration-300 font-light"
                 >
                   {link.name}
                 </a>
@@ -111,13 +107,11 @@ export default function Footer() {
           {/* Connect Section */}
           <div
             className={`transform transition-all duration-1000 ease-out ${
-              isVisible
-                ? "translate-y-0 opacity-100"
-                : "translate-y-8 opacity-0"
+              isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
             }`}
             style={{ transitionDelay: "600ms" }}
           >
-            <h4 className="text-sm font-medium text-gray-700 uppercase tracking-wider mb-6">
+            <h4 className="text-sm font-medium text-gray-400 uppercase tracking-wider mb-6">
               Connect
             </h4>
             <div className="space-y-4">
@@ -127,15 +121,15 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center space-x-3 text-gray-600 hover:text-black transition-colors duration-300"
+                  className="group flex items-center space-x-3 text-gray-300 hover:text-gray-100 transition-colors duration-300"
                 >
                   <social.icon
                     size={18}
-                    className="text-gray-400 group-hover:text-gray-600 transition-colors duration-300"
+                    className="text-gray-500 group-hover:text-gray-300 transition-colors duration-300"
                   />
                   <div>
                     <div className="font-light">{social.name}</div>
-                    <div className="text-sm text-gray-400">
+                    <div className="text-sm text-gray-500">
                       {social.username}
                     </div>
                   </div>
@@ -145,13 +139,23 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Divider */}
         <div
-          className={`border-t border-gray-200 pt-8 transform transition-all duration-1000 ease-out ${
+          className={` pt-8 transform transition-all duration-1000 ease-out ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
           }`}
           style={{ transitionDelay: "800ms" }}
         >
+        <h1 className="text-4xl lg:text-[9rem]  text-gray-100">UTKARSH SINGH</h1>
+        </div>
+
+        {/* Divider */}
+        <div
+          className={`pt-8 transform transition-all duration-1000 ease-out ${
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+          }`}
+          style={{ transitionDelay: "800ms" }}
+        >
+          
           <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
             {/* Copyright */}
             <div className="flex items-center space-x-2 text-gray-500">
@@ -161,6 +165,7 @@ export default function Footer() {
               </span>
             </div>
           </div>
+          
         </div>
       </div>
     </footer>

@@ -48,7 +48,7 @@ export default function AboutSection() {
     <section
       ref={sectionRef}
       id="about"
-      className="py-28 px-6 lg:px-8 bg-[#f3f3f3]"
+      className="py-31 px-6 lg:px-8 bg-[#f3f3f3]"
     >
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">

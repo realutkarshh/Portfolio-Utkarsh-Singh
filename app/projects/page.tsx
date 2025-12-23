@@ -1,23 +1,32 @@
-"use client"
+"use client";
 
-import { useState, useEffect, useRef } from "react"
-import { Button } from "@/components/ui/button"
-import { ArrowLeft, ExternalLink, Github, Calendar, ArrowRight, ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react"
-import Link from "next/link"
+import { useState, useEffect, useRef } from "react";
+import { Button } from "@/components/ui/button";
+import {
+  ArrowLeft,
+  ExternalLink,
+  Github,
+  Calendar,
+  ArrowRight,
+  ChevronLeft,
+  ChevronRight,
+  ArrowUpRight,
+} from "lucide-react";
+import Link from "next/link";
 
 export default function ProjectsPage() {
-  const [filter, setFilter] = useState("all")
-  const [isVisible, setIsVisible] = useState(false)
-  const [filterVisible, setFilterVisible] = useState(false)
-  const [projectsVisible, setProjectsVisible] = useState(false)
-  const [ctaVisible, setCtaVisible] = useState(false)
-  const [scrollX, setScrollX] = useState(0)
-  const [scrollEnd, setScrollEnd] = useState(false)
-  
-  const filterRef = useRef(null)
-  const projectsRef = useRef(null)
-  const ctaRef = useRef(null)
-  const sliderRef = useRef(null)
+  const [filter, setFilter] = useState("all");
+  const [isVisible, setIsVisible] = useState(false);
+  const [filterVisible, setFilterVisible] = useState(false);
+  const [projectsVisible, setProjectsVisible] = useState(false);
+  const [ctaVisible, setCtaVisible] = useState(false);
+  const [scrollX, setScrollX] = useState(0);
+  const [scrollEnd, setScrollEnd] = useState(false);
+
+  const filterRef = useRef(null);
+  const projectsRef = useRef(null);
+  const ctaRef = useRef(null);
+  const sliderRef = useRef<any>(null);
 
   const projects = [
     {
@@ -80,75 +89,84 @@ export default function ProjectsPage() {
       image: "/lake.png",
       featured: false,
     },
-  ]
+  ];
 
-  const categories = ["all", "Full-Stack", "Frontend", "Data Visualization"]
-  const filteredProjects = filter === "all" ? projects : projects.filter((project) => project.category === filter)
+  const categories = ["all", "Full-Stack", "Frontend", "Data Visualization"];
+  const filteredProjects =
+    filter === "all" ? projects : projects.filter((project) => project.category === filter);
 
   useEffect(() => {
-    // Header animation
-    setTimeout(() => setIsVisible(true), 100)
+    setTimeout(() => setIsVisible(true), 100);
 
-    // Setup intersection observers
     const observerOptions = {
       threshold: 0.1,
-      rootMargin: '50px'
-    }
+      rootMargin: "50px",
+    };
 
     const filterObserver = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) setFilterVisible(true)
-    }, observerOptions)
+      if (entry.isIntersecting) setFilterVisible(true);
+    }, observerOptions);
 
     const projectsObserver = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) setProjectsVisible(true)
-    }, observerOptions)
+      if (entry.isIntersecting) setProjectsVisible(true);
+    }, observerOptions);
 
     const ctaObserver = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) setCtaVisible(true)
-    }, observerOptions)
+      if (entry.isIntersecting) setCtaVisible(true);
+    }, observerOptions);
 
-    if (filterRef.current) filterObserver.observe(filterRef.current)
-    if (projectsRef.current) projectsObserver.observe(projectsRef.current)
-    if (ctaRef.current) ctaObserver.observe(ctaRef.current)
+    if (filterRef.current) filterObserver.observe(filterRef.current);
+    if (projectsRef.current) projectsObserver.observe(projectsRef.current);
+    if (ctaRef.current) ctaObserver.observe(ctaRef.current);
 
     return () => {
-      if (filterRef.current) filterObserver.unobserve(filterRef.current)
-      if (projectsRef.current) projectsObserver.unobserve(projectsRef.current)
-      if (ctaRef.current) ctaObserver.unobserve(ctaRef.current)
-    }
-  }, [])
+      if (filterRef.current) filterObserver.unobserve(filterRef.current);
+      if (projectsRef.current) projectsObserver.unobserve(projectsRef.current);
+      if (ctaRef.current) ctaObserver.unobserve(ctaRef.current);
+    };
+  }, []);
 
   const slide = (shift: any) => {
     if (sliderRef.current) {
       sliderRef.current.scrollBy({
         left: shift,
-        behavior: 'smooth'
-      })
+        behavior: "smooth",
+      });
     }
-  }
+  };
 
   const scrollCheck = () => {
     if (sliderRef.current) {
-      setScrollX(sliderRef.current.scrollLeft)
-      if (Math.floor(sliderRef.current.scrollWidth - sliderRef.current.scrollLeft) <= sliderRef.current.offsetWidth) {
-        setScrollEnd(true)
+      setScrollX(sliderRef.current.scrollLeft);
+      if (
+        Math.floor(
+          sliderRef.current.scrollWidth - sliderRef.current.scrollLeft
+        ) <= sliderRef.current.offsetWidth
+      ) {
+        setScrollEnd(true);
       } else {
-        setScrollEnd(false)
+        setScrollEnd(false);
       }
     }
-  }
+  };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gray-950 text-gray-100">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-xl z-50 border-b border-gray-100">
+      <nav className="fixed top-0 w-full bg-gray-950/80 backdrop-blur-xl z-50">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
-            <Link href="/" className="flex items-center text-gray-600 hover:text-black transition-colors duration-300 font-light">
+            <Link
+              href="/"
+              className="flex items-center text-gray-300 hover:text-gray-100 transition-colors duration-300 font-light"
+            >
               <ArrowLeft size={18} className="mr-3" />
-              Back to home
+              Back to HOME
             </Link>
-            <Link href="/" className="font-light text-xl text-gray-900 tracking-wide">
+            <Link
+              href="/"
+              className="font-light text-xl text-gray-100 tracking-wide"
+            >
               UTKARSH SINGH
             </Link>
           </div>
@@ -160,75 +178,43 @@ export default function ProjectsPage() {
         <div className="max-w-6xl mx-auto">
           <div
             className={`transform transition-all duration-1000 ease-out ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
+              isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
             }`}
           >
-            <h1 className="text-6xl lg:text-7xl font-light text-gray-900 mb-6 tracking-tight">
+            <h1 className="text-6xl lg:text-8xl font-light text-gray-100 mb-6 tracking-tight">
               My Works
             </h1>
           </div>
           <div
             className={`transform transition-all duration-1000 ease-out ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+              isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
             }`}
-            style={{ transitionDelay: '300ms' }}
+            style={{ transitionDelay: "300ms" }}
           >
-            <p className="text-xl font-light text-gray-600 max-w-2xl leading-relaxed">
-              A curated collection of my work spanning full-stack development, 
+            <p className="text-xl font-light text-gray-400 max-w-2xl leading-relaxed">
+              A curated collection of my work spanning full-stack development,
               frontend applications, and data visualization projects.
             </p>
           </div>
         </div>
       </section>
 
-
-      {/* <section className="pb-20 px-6 lg:px-8" ref={filterRef}>
-        <div className="max-w-6xl mx-auto">
-          <div
-            className={`transform transition-all duration-1000 ease-out ${
-              filterVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-            }`}
-          >
-            <div className="flex flex-wrap gap-3 justify-center">
-              {categories.map((category, index) => (
-                <button
-                  key={category}
-                  onClick={() => setFilter(category)}
-                  className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
-                    filter === category 
-                      ? "bg-black text-white shadow-sm" 
-                      : "bg-gray-50 text-gray-600 hover:bg-gray-100 hover:text-gray-900"
-                  }`}
-                  style={{
-                    transform: filterVisible ? 'translateY(0)' : 'translateY(20px)',
-                    opacity: filterVisible ? 1 : 0,
-                    transitionDelay: `${index * 100}ms`
-                  }}
-                >
-                  {category === "all" ? "All Projects" : category}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section> */}
-
       {/* Projects Slider */}
       <section className="pb-32 px-6 lg:px-8" ref={projectsRef}>
         <div className="max-w-7xl mx-auto">
           <div
             className={`relative transform transition-all duration-1000 ease-out ${
-              projectsVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
+              projectsVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
             }`}
           >
             {/* Left Arrow */}
             {scrollX > 0 && (
               <button
                 onClick={() => slide(-600)}
-                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 lg:-translate-x-12 z-10 w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-white shadow-xl border border-gray-100 flex items-center justify-center transition-all duration-300 hover:bg-gray-50 hover:scale-110 hover:shadow-2xl"
+                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 lg:-translate-x-12 z-10 w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-gray-900 shadow-xl border border-gray-800 flex items-center justify-center transition-all duration-300 hover:bg-gray-100 hover:text-gray-900 hover:scale-110 hover:shadow-2xl"
                 aria-label="Previous projects"
               >
-                <ChevronLeft className="w-6 h-6 lg:w-7 lg:h-7 text-gray-900" />
+                <ChevronLeft className="w-6 h-6 lg:w-7 lg:h-7 text-gray-100" />
               </button>
             )}
 
@@ -238,8 +224,8 @@ export default function ProjectsPage() {
               onScroll={scrollCheck}
               className="flex gap-6 overflow-x-auto scrollbar-hide scroll-smooth"
               style={{
-                scrollbarWidth: 'none',
-                msOverflowStyle: 'none',
+                scrollbarWidth: "none",
+                msOverflowStyle: "none",
               }}
             >
               {filteredProjects.map((project, index) => (
@@ -247,13 +233,13 @@ export default function ProjectsPage() {
                   key={project.id}
                   className="flex-shrink-0 w-[85vw] sm:w-[70vw] md:w-[45vw] lg:w-[30vw] group"
                   style={{
-                    transform: projectsVisible ? 'translateY(0)' : 'translateY(20px)',
+                    transform: projectsVisible ? "translateY(0)" : "translateY(20px)",
                     opacity: projectsVisible ? 1 : 0,
-                    transitionDelay: `${index * 200}ms`
+                    transitionDelay: `${index * 200}ms`,
                   }}
                 >
                   <Link href={`/projects/${project.id}`}>
-                    <div className="relative bg-white rounded-3xl overflow-hidden h-[480px] sm:h-[520px] transition-all duration-500 hover:shadow-2xl">
+                    <div className="relative bg-gray-900 rounded-3xl overflow-hidden h-[480px] sm:h-[520px] transition-all duration-500 hover:shadow-2xl border border-gray-800">
                       {/* Background Image */}
                       <div className="absolute inset-0 w-full h-full">
                         <img
@@ -262,14 +248,14 @@ export default function ProjectsPage() {
                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         />
                         {/* Overlay gradient */}
-                        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/80"></div>
+                        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/80" />
                       </div>
 
                       {/* Content */}
                       <div className="relative h-full flex flex-col justify-between p-6 sm:p-8">
                         {/* Top section - Year */}
                         <div className="flex justify-end">
-                          <span className="text-white/80 text-sm font-light">
+                          <span className="text-gray-200 text-sm font-light">
                             {project.year}
                           </span>
                         </div>
@@ -290,17 +276,17 @@ export default function ProjectsPage() {
                           <div className="flex items-center justify-between pt-2">
                             <div className="flex flex-wrap gap-2">
                               {project.tags?.slice(0, 2).map((tag) => (
-                                <span 
-                                  key={tag} 
-                                  className="px-3 py-1.5 bg-white/20 backdrop-blur-sm text-white text-xs rounded-full font-medium border border-white/30"
+                                <span
+                                  key={tag}
+                                  className="px-3 py-1.5 bg-white/10 backdrop-blur-sm text-white text-xs rounded-full font-medium border border-white/20"
                                 >
                                   {tag}
                                 </span>
                               ))}
                             </div>
-                            
+
                             {/* Arrow Icon */}
-                            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center transition-all duration-300 group-hover:bg-white group-hover:border-white group-hover:-rotate-45">
+                            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/15 backdrop-blur-sm border border-white/20 flex items-center justify-center transition-all duration-300 group-hover:bg-white group-hover:border-white group-hover:-rotate-45">
                               <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6 text-white transition-colors duration-300 group-hover:text-black" />
                             </div>
                           </div>
@@ -316,55 +302,12 @@ export default function ProjectsPage() {
             {!scrollEnd && filteredProjects.length > 1 && (
               <button
                 onClick={() => slide(600)}
-                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 lg:translate-x-12 z-10 w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-white shadow-xl border border-gray-100 flex items-center justify-center transition-all duration-300 hover:bg-gray-50 hover:scale-110 hover:shadow-2xl"
+                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 lg:translate-x-12 z-10 w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-gray-900 shadow-xl border border-gray-800 flex items-center justify-center transition-all duration-300 hover:bg-gray-100 hover:text-gray-900 hover:scale-110 hover:shadow-2xl"
                 aria-label="Next projects"
               >
-                <ChevronRight className="w-6 h-6 lg:w-7 lg:h-7 text-gray-900" />
+                <ChevronRight className="w-6 h-6 lg:w-7 lg:h-7 text-gray-100" />
               </button>
             )}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-24 px-6 lg:px-8 bg-gray-50" ref={ctaRef}>
-        <div className="max-w-4xl mx-auto text-center">
-          <div
-            className={`transform transition-all duration-1000 ease-out ${
-              ctaVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-            }`}
-          >
-            <h2 className="text-5xl lg:text-6xl font-light text-gray-900 mb-6 tracking-tight">
-              Let's collaborate
-            </h2>
-            <div className="w-12 h-px bg-gray-300 mx-auto mb-8"></div>
-          </div>
-          <div
-            className={`transform transition-all duration-1000 ease-out ${
-              ctaVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-            }`}
-            style={{ transitionDelay: '300ms' }}
-          >
-            <p className="text-xl font-light text-gray-600 mb-12 leading-relaxed">
-              I'm always open to discussing new opportunities and interesting projects.
-              Let's create something exceptional together.
-            </p>
-          </div>
-          <div
-            className={`transform transition-all duration-1000 ease-out ${
-              ctaVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-            }`}
-            style={{ transitionDelay: '600ms' }}
-          >
-            <Button
-              className="group bg-black text-white hover:bg-gray-800 rounded-full px-8 py-4 text-base font-medium transition-all duration-300 hover:scale-105 active:scale-95"
-              asChild
-            >
-              <a href="mailto:utkarsh2020051@gmail.com">
-                Get in touch
-                <ArrowRight size={18} className="ml-3 transition-transform duration-300 group-hover:translate-x-1" />
-              </a>
-            </Button>
           </div>
         </div>
       </section>
@@ -375,5 +318,5 @@ export default function ProjectsPage() {
         }
       `}</style>
     </div>
-  )
+  );
 }

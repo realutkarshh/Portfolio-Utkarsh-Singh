@@ -49,7 +49,7 @@ export default function Portfolio() {
       
       <ContactSection onContactFormOpen={handleContactFormOpen} />
 
-      <QuestionMarquee />
+      {/* <QuestionMarquee /> */}
 
       <FAQSection />
             

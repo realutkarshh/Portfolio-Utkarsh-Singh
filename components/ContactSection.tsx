@@ -42,7 +42,7 @@ export default function ContactSection({ onContactFormOpen }: ContactSectionProp
     <section
       id="contact"
       ref={sectionRef}
-      className="min-h-screen py-24 px-6 lg:px-8 bg-gray-50 flex items-center"
+      className="min-h-screen py-24 px-6 lg:px-8 bg-gray-950 flex items-center"
     >
       <div className="max-w-7xl mx-auto w-full">
         {/* Heading */}
@@ -51,7 +51,7 @@ export default function ContactSection({ onContactFormOpen }: ContactSectionProp
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <h2 className="text-6xl lg:text-7xl font-light text-gray-900 tracking-tight text-center">
+          <h2 className="text-6xl lg:text-8xl font-light text-gray-100 tracking-tight text-left">
             Let’s create together
           </h2>
         </div>
@@ -63,61 +63,74 @@ export default function ContactSection({ onContactFormOpen }: ContactSectionProp
           }`}
         >
           {/* Email */}
-          <div className="bg-white rounded-2xl p-8 border border-gray-400 group transition">
-            <p className="text-2xl text-gray-500 mb-2 group-hover:scale-105 transition-transform">Email</p>
+          <div className="bg-gray-900/40 rounded-2xl p-8 border border-gray-800 group transition">
+            <p className="text-2xl text-gray-400 mb-2 group-hover:scale-105 transition-transform">
+              Email
+            </p>
             <p className="group-hover:scale-105 transition-transform">
-
-            <a
-              href="mailto:realutkarshh@gmail.com"
-              className="text-lg font-light text-gray-900 hover:underline group-hover:scale-105 transition-transform"
+              <a
+                href="mailto:realutkarshh@gmail.com"
+                className="text-lg font-light text-gray-100 hover:underline group-hover:scale-105 transition-transform"
               >
-              realutkarshh@gmail.com
-            </a>
-              </p>
+                realutkarshh@gmail.com
+              </a>
+            </p>
           </div>
 
           {/* Primary CTA — Highlighted */}
-          <div className="lg:col-span-2 bg-gray-950 rounded-2xl p-8 flex items-center justify-between group transition cursor-pointer" onClick={onContactFormOpen}>
+          <div
+            className="lg:col-span-2 bg-gray-900 rounded-2xl p-8 flex items-center justify-between group transition cursor-pointer border border-gray-800"
+            onClick={onContactFormOpen}
+          >
             <div>
-              <p className="text-2xl text-gray-400 mb-2 group-hover:scale-105 transition-transform">Have an idea?</p>
-              <p className="text-xl font-light text-white group-hover:scale-105 transition-transform">
+              <p className="text-2xl text-gray-400 mb-2 group-hover:scale-105 transition-transform">
+                Have an idea?
+              </p>
+              <p className="text-xl font-light text-gray-100 group-hover:scale-105 transition-transform">
                 Let’s build something meaningful.
               </p>
             </div>
-            {/* <Button
+            <ArrowRight
               onClick={onContactFormOpen}
-              className="group bg-white text-gray-900 rounded-full px-6 py-5 text-base font-medium hover:bg-gray-200 transition cursor-pointer"
-            >
-              
-            </Button> */}
-              <ArrowRight onClick={onContactFormOpen} className="ml-2 text-gray-50 group-hover:translate-x-3 transition-transform cursor-pointer" size={50} />
+              className="ml-2 text-gray-100 group-hover:translate-x-3 transition-transform cursor-pointer"
+              size={50}
+            />
           </div>
 
           {/* Location */}
-          <div className="bg-white rounded-2xl p-8 border border-gray-400 group transition">
-            <p className="text-2xl text-gray-500 mb-2 group-hover:scale-105 transition-transform">Location</p>
-            <p className="text-lg font-light text-gray-900 group-hover:scale-105 transition-transform">
+          <div className="bg-gray-900/40 rounded-2xl p-8 border border-gray-800 group transition">
+            <p className="text-2xl text-gray-400 mb-2 group-hover:scale-105 transition-transform">
+              Location
+            </p>
+            <p className="text-lg font-light text-gray-100 group-hover:scale-105 transition-transform">
               Greater Noida West, India
             </p>
           </div>
 
           {/* Availability */}
-          <div className="bg-white rounded-2xl p-8 border border-gray-400 group transition ">
-            <p className="text-2xl text-gray-500 mb-2 group-hover:scale-105 transition-transform">Availability</p>
-            <p className="text-lg font-light text-gray-900 group-hover:scale-105 transition-transform">
+          <div className="bg-gray-900/40 rounded-2xl p-8 border border-gray-800 group transition ">
+            <p className="text-2xl text-gray-400 mb-2 group-hover:scale-105 transition-transform">
+              Availability
+            </p>
+            <p className="text-lg font-light text-gray-100 group-hover:scale-105 transition-transform">
               Open for opportunities
             </p>
           </div>
 
           {/* Resume CTA */}
-          <div onClick={handleResumeDownload} className="bg-white rounded-2xl p-8 border border-gray-400 flex items-center justify-between cursor-pointer group transition">
+          <div
+            onClick={handleResumeDownload}
+            className="bg-gray-900/40 rounded-2xl p-8 border border-gray-800 flex items-center justify-between cursor-pointer group transition"
+          >
             <div>
-              <p className="text-2xl text-gray-500 mb-2 group-hover:scale-105 transition-transform">Resume</p>
-              <p className="text-lg font-light text-gray-900 group-hover:scale-105 transition-transform">
+              <p className="text-2xl text-gray-400 mb-2 group-hover:scale-105 transition-transform">
+                Resume
+              </p>
+              <p className="text-lg font-light text-gray-100 group-hover:scale-105 transition-transform">
                 Download CV
               </p>
             </div>
-              <Download className="text-gray-500 group-hover:scale-110 transition-transform" size={50} />
+            <Download className="text-gray-400 group-hover:scale-110 transition-transform" size={50} />
           </div>
         </div>
       </div>

@@ -49,7 +49,7 @@ export default function WorksSection() {
   }, []);
 
   return (
-    <section id="works" className="py-24 px-6 lg:px-8" ref={sectionRef}>
+    <section id="works" className="py-31 px-6 lg:px-8" ref={sectionRef}>
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-20">
@@ -61,7 +61,7 @@ export default function WorksSection() {
             }`}
             style={{ transitionDelay: "200ms" }}
           >
-            <h2 className="text-6xl lg:text-7xl font-light text-gray-900 tracking-tight">
+            <h2 className="text-6xl lg:text-8xl font-normal text-gray-900 tracking-tight">
               Selected Work
             </h2>
           </div>
@@ -83,7 +83,7 @@ export default function WorksSection() {
                 <div className="group rounded-2xl p-8 transition-all duration-300 bg-white">
                   <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between">
                     <div className="flex items-center justify-between lg:justify-start lg:space-x-4">
-                      <h3 className="relative text-4xl font-light text-gray-900 group-hover:text-black transition-colors duration-300">
+                      <h3 className="relative text-3xl lg:text-5xl font-light text-gray-900 group-hover:text-black transition-colors duration-300">
                         {project.title}
                       </h3>
                       <span className="absolute left-0 -bottom-2 h-[2px] w-0 bg-gray-900 transition-all duration-300 group-hover:w-full"></span>
@@ -102,8 +102,8 @@ export default function WorksSection() {
           ))}
         </div>
 
-        {/* Bottom accent */}
-        <div
+
+        {/* <div
           className={`mt-16 text-center transform transition-all duration-1000 ease-out ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
           }`}
@@ -121,7 +121,7 @@ export default function WorksSection() {
               />
             </Link>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
