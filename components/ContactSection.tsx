@@ -42,7 +42,7 @@ export default function ContactSection({ onContactFormOpen }: ContactSectionProp
     <section
       id="contact"
       ref={sectionRef}
-      className="min-h-screen py-24 px-6 lg:px-8 bg-gray-950 flex items-center"
+      className="min-h-screen py-24 px-6 lg:px-8 bg-[#f8fafc] flex items-center"
     >
       <div className="max-w-7xl mx-auto w-full">
         {/* Heading */}
@@ -51,7 +51,7 @@ export default function ContactSection({ onContactFormOpen }: ContactSectionProp
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <h2 className="text-6xl lg:text-8xl font-light text-gray-100 tracking-tight text-left">
+          <h2 className="text-6xl lg:text-8xl font-light text-slate-900 tracking-tight text-left">
             Let’s create together
           </h2>
         </div>
@@ -63,14 +63,14 @@ export default function ContactSection({ onContactFormOpen }: ContactSectionProp
           }`}
         >
           {/* Email */}
-          <div className="bg-gray-900/40 rounded-2xl p-8 border border-gray-800 group transition">
-            <p className="text-2xl text-gray-400 mb-2 group-hover:scale-105 transition-transform">
+          <div className="bg-white rounded-2xl p-8 border border-slate-200 group transition shadow-sm hover:shadow-md">
+            <p className="text-2xl text-slate-500 mb-2 group-hover:scale-105 transition-transform">
               Email
             </p>
             <p className="group-hover:scale-105 transition-transform">
               <a
                 href="mailto:realutkarshh@gmail.com"
-                className="text-lg font-light text-gray-100 hover:underline group-hover:scale-105 transition-transform"
+                className="text-lg font-light text-slate-900 hover:underline group-hover:scale-105 transition-transform"
               >
                 realutkarshh@gmail.com
               </a>
@@ -79,40 +79,40 @@ export default function ContactSection({ onContactFormOpen }: ContactSectionProp
 
           {/* Primary CTA — Highlighted */}
           <div
-            className="lg:col-span-2 bg-gray-900 rounded-2xl p-8 flex items-center justify-between group transition cursor-pointer border border-gray-800"
+            className="lg:col-span-2 bg-slate-900 rounded-2xl p-8 flex items-center justify-between group transition cursor-pointer shadow-md"
             onClick={onContactFormOpen}
           >
             <div>
-              <p className="text-2xl text-gray-400 mb-2 group-hover:scale-105 transition-transform">
+              <p className="text-2xl text-slate-200 mb-2 group-hover:scale-105 transition-transform">
                 Have an idea?
               </p>
-              <p className="text-xl font-light text-gray-100 group-hover:scale-105 transition-transform">
+              <p className="text-xl font-light text-white group-hover:scale-105 transition-transform">
                 Let’s build something meaningful.
               </p>
             </div>
             <ArrowRight
               onClick={onContactFormOpen}
-              className="ml-2 text-gray-100 group-hover:translate-x-3 transition-transform cursor-pointer"
+              className="ml-2 text-white group-hover:translate-x-3 transition-transform cursor-pointer"
               size={50}
             />
           </div>
 
           {/* Location */}
-          <div className="bg-gray-900/40 rounded-2xl p-8 border border-gray-800 group transition">
-            <p className="text-2xl text-gray-400 mb-2 group-hover:scale-105 transition-transform">
+          <div className="bg-white rounded-2xl p-8 border border-slate-200 group transition shadow-sm hover:shadow-md">
+            <p className="text-2xl text-slate-500 mb-2 group-hover:scale-105 transition-transform">
               Location
             </p>
-            <p className="text-lg font-light text-gray-100 group-hover:scale-105 transition-transform">
+            <p className="text-lg font-light text-slate-900 group-hover:scale-105 transition-transform">
               Greater Noida West, India
             </p>
           </div>
 
           {/* Availability */}
-          <div className="bg-gray-900/40 rounded-2xl p-8 border border-gray-800 group transition ">
-            <p className="text-2xl text-gray-400 mb-2 group-hover:scale-105 transition-transform">
+          <div className="bg-white rounded-2xl p-8 border border-slate-200 group transition shadow-sm hover:shadow-md">
+            <p className="text-2xl text-slate-500 mb-2 group-hover:scale-105 transition-transform">
               Availability
             </p>
-            <p className="text-lg font-light text-gray-100 group-hover:scale-105 transition-transform">
+            <p className="text-lg font-light text-slate-900 group-hover:scale-105 transition-transform">
               Open for opportunities
             </p>
           </div>
@@ -120,17 +120,20 @@ export default function ContactSection({ onContactFormOpen }: ContactSectionProp
           {/* Resume CTA */}
           <div
             onClick={handleResumeDownload}
-            className="bg-gray-900/40 rounded-2xl p-8 border border-gray-800 flex items-center justify-between cursor-pointer group transition"
+            className="bg-white rounded-2xl p-8 border border-slate-200 flex items-center justify-between cursor-pointer group transition shadow-sm hover:shadow-md"
           >
             <div>
-              <p className="text-2xl text-gray-400 mb-2 group-hover:scale-105 transition-transform">
+              <p className="text-2xl text-slate-500 mb-2 group-hover:scale-105 transition-transform">
                 Resume
               </p>
-              <p className="text-lg font-light text-gray-100 group-hover:scale-105 transition-transform">
+              <p className="text-lg font-light text-slate-900 group-hover:scale-105 transition-transform">
                 Download CV
               </p>
             </div>
-            <Download className="text-gray-400 group-hover:scale-110 transition-transform" size={50} />
+            <Download
+              className="text-slate-400 group-hover:scale-110 transition-transform"
+              size={50}
+            />
           </div>
         </div>
       </div>
