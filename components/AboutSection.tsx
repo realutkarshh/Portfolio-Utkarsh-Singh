@@ -152,17 +152,14 @@ function Marquee({
     <div className="relative overflow-hidden">
       <div ref={trackRef} className="flex gap-4 w-max">
         {[...skills, ...skills].map((skill, index) => {
-          const Icon = skill.icon;
+          const name = skill.name;
           return (
             <div
               key={index}
               className="flex items-center justify-center px-5 py-4 rounded-xl bg-gray-[#f3f3f3] border border-gray-100 hover:border-gray-200 transition-all duration-300 hover:shadow-sm"
               style={{ minWidth: "80px" }}
             >
-              <Icon
-                className="w-8 h-8"
-                style={{ color: skill.color }}
-              />
+             {name}
             </div>
           );
         })}
