@@ -36,7 +36,7 @@ export default function ProjectsPage() {
         "A full stack search engine created from scratch. It is an independent search engine with its own web crawler, indexer and query processor.",
       year: "2024",
       tags: ["Full-Stack", "E-Commerce"],
-      image: "/helix-search-logo.png",
+      image: "/helix-2.png",
       featured: true,
     },
     {
@@ -46,7 +46,7 @@ export default function ProjectsPage() {
         "A full-stack e-commerce solution with user authentication, payment processing, and admin dashboard.",
       year: "2024",
       tags: ["Full-Stack", "E-Commerce"],
-      image: "/desert.png",
+      image: "/ecom-img.png",
       featured: true,
     },
     {
@@ -56,7 +56,7 @@ export default function ProjectsPage() {
         "Real-time collaborative task management with drag-and-drop functionality and team workspaces.",
       year: "2024",
       tags: ["Frontend", "Real-time"],
-      image: "/mountain.png",
+      image: "/note-4.png",
       featured: true,
     },
     {
@@ -66,7 +66,7 @@ export default function ProjectsPage() {
         "This was a full stack project as I have created an admin panel to manage this website as well.",
       year: "2023",
       tags: ["Full-Stack", "Education"],
-      image: "/scenic.png",
+      image: "/skm-1.png",
       featured: false,
     },
     {
@@ -76,7 +76,7 @@ export default function ProjectsPage() {
         "An admin panel designed for a Food Ecommerce brand to manage orders efficiently.",
       year: "2024",
       tags: ["Frontend", "Dashboard"],
-      image: "/scott.png",
+      image: "/ecom-admin-1.png",
       featured: false,
     },
     {
@@ -86,7 +86,7 @@ export default function ProjectsPage() {
         "An Issue Tracking application in which you can manage issues, assignee and priority.",
       year: "2025",
       tags: ["Frontend", "Dashboard"],
-      image: "/lake.png",
+      image: "/issue-1.png",
       featured: false,
     },
   ];
@@ -261,7 +261,8 @@ export default function ProjectsPage() {
                         </div>
 
                         {/* Bottom section - Title, Description, Tags */}
-                        <div className="space-y-4">
+<div className="space-y-4 bg-black/40 backdrop-blur-md rounded-lg p-4">
+
                           {/* Title */}
                           <h3 className="text-2xl sm:text-3xl font-light text-white leading-tight">
                             {project.title}
