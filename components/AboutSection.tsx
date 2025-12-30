@@ -48,7 +48,7 @@ export default function AboutSection() {
     <section
       ref={sectionRef}
       id="about"
-      className="py-31 px-6 lg:px-8 bg-[#f3f3f3]"
+      className="py-31 px-6 lg:px-8 bg-[#f1f2ec]"
     >
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -112,7 +112,7 @@ export default function AboutSection() {
               </div>
             </div>
 
-            <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-blue-500 rounded-full opacity-10 blur-xl" />
+            
           </div>
         </div>
       </div>
@@ -156,7 +156,7 @@ function Marquee({
           return (
             <div
               key={index}
-              className="flex items-center justify-center px-5 py-4 rounded-xl bg-gray-[#f3f3f3] border border-gray-100 hover:border-gray-200 transition-all duration-300 hover:shadow-sm"
+              className="flex items-center justify-center px-5 py-4 rounded-xl bg-gray-[#f1f2ec] transition-all duration-300"
               style={{ minWidth: "80px" }}
             >
              {name}
@@ -166,8 +166,8 @@ function Marquee({
       </div>
 
       {/* Fade edges */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#f3f3f3] to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#f3f3f3] to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#f1f2ec] to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#f1f2ec] to-transparent" />
     </div>
   );
 }
