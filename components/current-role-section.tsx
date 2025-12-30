@@ -104,9 +104,9 @@ export default function CurrentWorkSection() {
                 }`}
                 style={{ transitionDelay: "600ms" }}
               >
-                Building secure web applications with modern technologies.
-                Working across the full stack – from React and Next.js on the
-                frontend to Node.js and PostgreSQL on the backend.
+                Building Cydenti with modern technologies.
+                Working across the full stack – from Angular on the
+                frontend to Node.js and Python on the backend.
               </p>
 
               {/* Tech Stack */}
