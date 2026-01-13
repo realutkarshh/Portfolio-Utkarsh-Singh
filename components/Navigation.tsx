@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, X } from "lucide-react";
+import { ArrowRight, X, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -53,17 +53,14 @@ export default function Navigation({
           clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
           ease: "power4.inOut",
         })
-        .to(
-          ".menu-link-item-holder",
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            stagger: 0.1,
-            ease: "power4.inOut",
-            delay: -0.75,
-          }
-        );
+        .to(".menu-link-item-holder", {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          stagger: 0.1,
+          ease: "power4.inOut",
+          delay: -0.75,
+        });
     },
     { scope: containerRef }
   );
@@ -88,30 +85,25 @@ export default function Navigation({
 
   return (
     <div ref={containerRef}>
-     
       <nav className="fixed top-0 w-full z-40 transition-all duration-500 ease-out">
-  <div className="max-w-7xl mx-auto px-6 lg:px-8">
-    <div className="flex justify-between items-center h-20">
-      {/* Logo */}
-      <Link
-        href="/"
-        className="font-light text-xl text-orange-500 hover:text-black transition-colors duration-300 tracking-wide"
-      >
-       
-      </Link>
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="flex justify-between items-center h-20">
+            {/* Logo */}
+            <Link
+              href="/"
+              className="font-light text-xl text-orange-500 hover:text-black transition-colors duration-300 tracking-wide"
+            ></Link>
 
-      {/* Menu Button - Rounded */}
-      <button
-        onClick={toggleMenu}
-        className="relative z-50 flex items-center gap-3 px-5 py-2.5 text-xl font-light text-gray-900 hover:text-black transition-all duration-300 group rounded-full border border-gray-200 hover:border-gray-900 bg-white/80 backdrop-blur-sm hover:bg-white"
-      >
-        <span className="tracking-wide font-normal">MENU</span>
-        
-      </button>
-    </div>
-  </div>
-</nav>
-
+            {/* Menu Button - Rounded */}
+            <button
+              onClick={toggleMenu}
+              className="relative z-50 flex items-center gap-3 px-5 py-2.5 text-xl font-light text-gray-900 hover:text-black transition-all duration-300 group rounded-full border border-gray-200 hover:border-gray-900 bg-white/80 backdrop-blur-sm hover:bg-white"
+            >
+              <span className="tracking-wide font-normal">MENU</span>
+            </button>
+          </div>
+        </div>
+      </nav>
 
       {/* Full-Screen Overlay Menu */}
       <div
@@ -129,33 +121,54 @@ export default function Navigation({
           >
             <X className="w-8 h-8 text-white" />
           </button>
-
           {/* Navigation Links */}
           <div className="space-y-4 sm:space-y-6">
             {navItems.map((item) => (
-              <div key={item.name} className="menu-link-item w-max overflow-hidden h-[3rem] sm:h-[5rem] md:h-[6.5rem] lg:h-[5.4rem]">
-                <div className= "cursor-pointer menu-link-item-holder relative">
+              <div
+                key={item.name}
+                className="menu-link-item w-max overflow-hidden h-[3rem] sm:h-[5rem] md:h-[6.5rem] lg:h-[5.4rem]"
+              >
+                <div className="menu-link-item-holder relative group cursor-pointer">
                   {item.href ? (
                     <Link
                       href={item.href}
                       onClick={() => setIsMenuOpen(false)}
-                      className="cursor-pointer block text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light text-white hover:text-gray-300 tracking-tight transition-colors duration-300 leading-none"
+                      className="flex items-center gap-4 text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light text-white hover:text-gray-300 tracking-tight transition-colors duration-300 leading-none"
                     >
-                      {item.name}
+                      <span>{item.name}</span>
+
+                      {/* Arrow */}
+                      <ArrowUpRight
+                        className="
+                w-8 h-8 lg:w-20 lg:h-20 sm:w-10 sm:h-10
+                opacity-0 -translate-x-3
+                transition-all duration-300 ease-out
+                group-hover:opacity-100 group-hover:translate-x-0
+              "
+                      />
                     </Link>
                   ) : (
                     <button
                       onClick={() => handleNavClick(item)}
-                      className="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light text-white hover:text-gray-300 tracking-tight transition-colors duration-300 leading-none"
+                      className="flex items-center gap-4 text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light text-white hover:text-gray-300 tracking-tight transition-colors duration-300 leading-none"
                     >
-                      {item.name}
+                      <span>{item.name}</span>
+
+                      {/* Arrow */}
+                      <ArrowUpRight
+                        className="
+                w-8 h-8 lg:w-20 lg:h-20 sm:w-10 sm:h-10
+                opacity-0 -translate-x-3
+                transition-all duration-300 ease-out
+                group-hover:opacity-100 group-hover:translate-x-0
+              "
+                      />
                     </button>
                   )}
                 </div>
               </div>
             ))}
           </div>
-
           {/* Bottom Section */}
           <div className="fixed bottom-8 left-6 right-6 lg:left-10 lg:right-10 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-8">
             {/* CTA Button */}

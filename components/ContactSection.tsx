@@ -42,7 +42,7 @@ export default function ContactSection({ onContactFormOpen }: ContactSectionProp
     <section
       id="contact"
       ref={sectionRef}
-      className="min-h-screen py-24 px-6 lg:px-8 bg-[#f8fafc] flex items-center"
+      className="min-h-screen py-24 px-6 lg:px-8 flex items-center"
     >
       <div className="max-w-7xl mx-auto w-full">
         {/* Heading */}

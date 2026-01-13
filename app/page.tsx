@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Navigation from "../components/Navigation";
 // import HeroSection from "../components/HeroSection";
-import AboutSection from "../components/AboutSection";
+import AboutSection from "../components/AboutSectionGsap";
 import WorksSection from "../components/WorksSection";
 import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
@@ -12,6 +12,8 @@ import FAQSection from "@/components/FAQSection";
 import QuestionMarquee from "@/components/marqueeHeading";
 import HeroSection from "@/components/hero-section-new";
 import CurrentRoleSection from "@/components/current-role-section";
+import ProjectsSection from "@/components/ProjectSectionGsap";
+import VisualExplorationsSection from "@/components/BentoGridGsap";
 
 export default function Portfolio() {
   const [isContactFormOpen, setIsContactFormOpen] = useState(false);
@@ -43,9 +45,13 @@ export default function Portfolio() {
       
       <AboutSection />
 
+      <ProjectsSection />
+
+      {/* <VisualExplorationsSection /> */}
+
       <CurrentRoleSection />
       
-      <WorksSection />
+      {/* <WorksSection /> */}
       
       <ContactSection onContactFormOpen={handleContactFormOpen} />
 

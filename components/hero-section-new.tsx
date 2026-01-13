@@ -57,8 +57,8 @@ const HeroSection: FC = () => {
               className={`max-w-lg space-y-6 transition-all duration-700 delay-300
               ${loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
             >
-              <div className="flex items-center gap-4 text-sm text-slate-500">
-                <span className="h-px w-16 bg-slate-400" />
+              <div className="flex items-center gap-4 text-2xl text-slate-500">
+                {/* <span className="h-px w-16 bg-slate-400" /> */}
                 <span>Specialized in</span>
               </div>
 
@@ -84,32 +84,7 @@ const HeroSection: FC = () => {
                 50+
               </div>
 
-              {/* Socials */}
-              <div className="flex items-center gap-4 text-slate-800">
-                {[Linkedin, Twitter, Instagram, Github].map((Icon, i) => (
-                  <button
-                    key={i}
-                    className={`flex h-10 w-10 items-center justify-center rounded-full border border-slate-300
-                    bg-white/70 text-slate-600
-                    hover:bg-slate-900 hover:text-white transition-all duration-300
-                    ${loaded ? "opacity-100 scale-100" : "opacity-0 scale-75"}`}
-                    style={{ transitionDelay: `${600 + i * 80}ms` }}
-                  >
-                    <Icon />
-                  </button>
-                ))}
-              </div>
-
-              {/* CTA */}
-              <button
-                className={`inline-flex items-center gap-2 text-sm font-light text-slate-900
-                transition-all duration-500 delay-700
-                ${loaded ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-2"}
-                hover:translate-x-0.5`}
-              >
-                View selected work
-                <ArrowRight size={16} />
-              </button>
+              
             </div>
           </div>
         </div>
